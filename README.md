@@ -1,8 +1,14 @@
-# React + Vite
+# CRAZEE-BURGER
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fast food application that allows complete order management by the customer with real-time cart updates and an administrator interface.
 
-Currently, two official plugins are available:
+Content of the differents tickets :
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+F01 - Creating the Login Page without CSS.
+- Add text (Welcome to our place + Login).
+- Form.
+- Button with label "Access your space" without a chevron for now.
+- Placeholder : "enter your first name".
+- Clear the form when it has been submitted.
+- When i enter a name and click "access your space" button, an alert box appears and says "Hello" followed by the first name entered in the input box.
+- The user must enter a first name in order to display the message in the alert box otherwise an error message is displayed informing the user that the field is mandatory.
