@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import {Link} from 'react-router-dom';
 
 const LoginForm = () => {
 	// State
@@ -30,6 +31,7 @@ const LoginForm = () => {
 					required
 				/>
 				<button>Accéder à votre espace</button>
+				<Link to="/order">Vers OrderPage</Link>
 			</form>
 	);
 };
