@@ -15,7 +15,7 @@ function App() {
                 element={<LoginPage />}
             />
             <Route
-                path="/order"
+                path="/order/:username"
                 element={<OrderPage />}
             />
             <Route

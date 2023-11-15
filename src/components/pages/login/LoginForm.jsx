@@ -1,15 +1,16 @@
 import {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 const LoginForm = () => {
 	// State
 	const [inputValue, setInputValue] = useState("");
+	const navigate = useNavigate()
 
 	// Behaviors
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		alert(`Bonjour ${inputValue}`)
 		setInputValue("");
+		navigate(`order/${inputValue}`)
 	}
 
 
@@ -31,7 +32,6 @@ const LoginForm = () => {
 					required
 				/>
 				<button>Accéder à votre espace</button>
-				<Link to="/order">Vers OrderPage</Link>
 			</form>
 	);
 };
