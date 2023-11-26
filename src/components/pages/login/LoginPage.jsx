@@ -8,6 +8,7 @@ const LoginPage = () => {
     // Render
     return (
         <LoginPageStyled>
+            <div className="background-container"></div>
             <Logo />
             <LoginForm />
         </LoginPageStyled>
@@ -21,10 +22,9 @@ const LoginPageStyled = styled.div`
     justify-content: center;
     align-items: center;
 
-    ::before {
+    .background-container {
         content: "";
-        background: url("/images/burger-and-fries-background.jpg") rgba(0, 0, 0, 0.7) center;
-        background-size: cover;
+        background: url("/images/burger-and-fries-background.jpg") center / cover rgba(0, 0, 0, 0.7) fixed;
         background-blend-mode: darken;
         position: absolute;
         top: 0;
