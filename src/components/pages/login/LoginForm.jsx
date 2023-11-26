@@ -21,7 +21,7 @@ const LoginForm = () => {
   // Render
   return (
     <LoginFormStyled action="submit" onSubmit={handleSubmit}>
-      <h1>Bienvenue chez nous</h1>
+      <h1>Bienvenue chez nous !</h1>
       <br />
       <h2>Connectez-vous</h2>
       <input
@@ -37,7 +37,7 @@ const LoginForm = () => {
 };
 
 const LoginFormStyled = styled.form`
-  background-color: red;
+  background-color: green;
 `;
 
 export default LoginForm;
