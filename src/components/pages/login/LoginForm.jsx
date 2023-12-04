@@ -2,8 +2,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../theme/index.js";
-import { BsPersonCircle } from "react-icons/bs";
-import {IoChevronForward} from 'react-icons/io5';
+import { IoChevronForward } from "react-icons/io5";
+import {BsPersonCircle} from 'react-icons/bs';
+import Input from "./Input.jsx";
+
 
 const LoginForm = () => {
   // State
@@ -27,20 +29,13 @@ const LoginForm = () => {
       <h1>Bienvenue chez nous !</h1>
       <hr />
       <h2>Connectez-vous</h2>
-      <div className="input-container">
-        <BsPersonCircle className="input-icon" />
-        <input
-          value={inputValue}
-          onChange={handleChange}
-          type="text"
-          placeholder="Entrer votre prénom.."
-          required
-        />
-      </div>
-      <button className="button-container">
-        <span>Accéder à votre espace</span>
+      <div>
+        <Input value={inputValue} onChange={handleChange} placeholder={"Entrer votre prénom.."} required Icon={<BsPersonCircle className="input-icon" />} />
+        <button className="button-container">
+          <span>Accéder à votre espace</span>
           <IoChevronForward className="button-icon" />
-      </button>
+        </button>
+      </div>
     </LoginFormStyled>
   );
 };
@@ -70,77 +65,50 @@ const LoginFormStyled = styled.form`
     margin: 20px 10px 10px;
   }
 
-  .input-container {
-    background-color: ${theme.colors.white};
-    border-radius: 5px;
-    display: flex;
+  .button-container {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
     align-items: center;
+    position: relative;
+    white-space: nowrap;
+    text-decoration: none;
+    line-height: 1;
+
     padding: 18px 24px;
-    margin: 18px 0;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 800;
+    color: ${theme.colors.white};
+    background-color: ${theme.colors.primary_burger};
+    border: 1px solid ${theme.colors.primary_burger};
 
-    .input-icon {
-      font-size: 15px;
-      margin-right: 8px;
-      color: ${theme.colors.greySemiDark};
+    &:hover:not(:disabled) {
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary_burger};
+      border: 1px solid ${theme.colors.primary_burger};
+      transition: all 200ms ease-in-out;
     }
 
-    input {
-      border: none;
-      font-size: 15px;
-      color: ${theme.colors.dark};
+    &:active {
+      color: ${theme.colors.white};
+      background-color: ${theme.colors.primary_burger};
+      border: 1px solid ${theme.colors.primary_burger};
     }
 
-    &::placeholder {
-      background: ${theme.colors.white};
-      color: ${theme.colors.greyLight};
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .button-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 15px;
+      margin-left: 10px;
     }
   }
-    
- .button-container {
-     width: 100%;
-     border: 1px solid red;
-     display: inline-flex;
-     justify-content: center;
-     align-items: center;
-     position: relative;
-     white-space: nowrap;
-     text-decoration: none;
-     line-height: 1;
-     
-     padding: 18px 24px;
-     border-radius: 5px;
-     font-size: 15px;
-     font-weight: 800;
-     color: ${theme.colors.white};
-     background-color: ${theme.colors.primary_burger};
-     border: 1px solid ${theme.colors.primary_burger};
-     
-     &:hover:not(:disabled) {
-         background-color: ${theme.colors.white};
-         color: ${theme.colors.primary_burger};
-         border: 1px solid ${theme.colors.primary_burger};
-         transition: all 200ms ease-in-out;
-     }
-     
-     &:active {
-         color: ${theme.colors.white};
-         background-color: ${theme.colors.primary_burger};
-         border: 1px solid ${theme.colors.primary_burger};
-     }
-     
-     &:disabled {
-         opacity: 0.6;
-         cursor: not-allowed;
-     }
-     
-     .button-icon {
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         font-size: 15px;
-         margin-right: 10px;
-     }
- }
 `;
 
 export default LoginForm;
