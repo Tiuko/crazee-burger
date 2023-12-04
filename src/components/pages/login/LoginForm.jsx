@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../theme/index.js";
 import { IoChevronForward } from "react-icons/io5";
-import {BsPersonCircle} from 'react-icons/bs';
+import { BsPersonCircle } from "react-icons/bs";
 import TextInput from "../../reusable-ui/TextInput.jsx";
-
+import PrimaryButton from "../../reusable-ui/PrimaryButton.jsx";
 
 const LoginForm = () => {
   // State
@@ -30,11 +30,17 @@ const LoginForm = () => {
       <hr />
       <h2>Connectez-vous</h2>
       <div>
-        <TextInput value={inputValue} onChange={handleChange} placeholder={"Entrer votre prénom.."} required Icon={<BsPersonCircle className="input-icon" />} />
-        <button className="button-container">
-          <span>Accéder à votre espace</span>
-          <IoChevronForward className="button-icon" />
-        </button>
+        <TextInput
+          value={inputValue}
+          onChange={handleChange}
+          placeholder={"Entrer votre prénom.."}
+          required
+          Icon={<BsPersonCircle className="input-icon" />}
+        />
+        <PrimaryButton
+          label={"Accéder à votre espace"}
+          Icon={<IoChevronForward className="button-icon" />}
+        />
       </div>
     </LoginFormStyled>
   );
@@ -65,49 +71,18 @@ const LoginFormStyled = styled.form`
     margin: 20px 10px 10px;
   }
 
-  .button-container {
-    width: 100%;
-    display: inline-flex;
+  .input-icon {
+    font-size: 15px;
+    margin-right: 8px;
+    color: ${theme.colors.greySemiDark};
+  }
+
+  .button-icon {
+    display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    white-space: nowrap;
-    text-decoration: none;
-    line-height: 1;
-
-    padding: 18px 24px;
-    border-radius: 5px;
     font-size: 15px;
-    font-weight: 800;
-    color: ${theme.colors.white};
-    background-color: ${theme.colors.primary_burger};
-    border: 1px solid ${theme.colors.primary_burger};
-
-    &:hover:not(:disabled) {
-      background-color: ${theme.colors.white};
-      color: ${theme.colors.primary_burger};
-      border: 1px solid ${theme.colors.primary_burger};
-      transition: all 200ms ease-in-out;
-    }
-
-    &:active {
-      color: ${theme.colors.white};
-      background-color: ${theme.colors.primary_burger};
-      border: 1px solid ${theme.colors.primary_burger};
-    }
-
-    &:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    .button-icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 15px;
-      margin-left: 10px;
-    }
+    margin-left: 10px;
   }
 `;
 
