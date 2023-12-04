@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { theme } from '../../../theme/index.js';
+import { theme } from '../../theme/index.js';
 
 const TextInput = ({ onChange, Icon, ...extraProps }) => {
 	return (
