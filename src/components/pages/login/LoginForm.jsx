@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { theme } from "../../../theme/index.js";
+import {BsPersonCircle} from 'react-icons/bs';
 
 const LoginForm = () => {
   // State
@@ -25,13 +26,16 @@ const LoginForm = () => {
       <h1>Bienvenue chez nous !</h1>
       <hr />
       <h2>Connectez-vous</h2>
-      <input
-        value={inputValue}
-        onChange={handleChange}
-        type="text"
-        placeholder="Entrer votre prénom.."
-        required
-      />
+      <div className="input-container">
+          <BsPersonCircle className="input-icon" />
+          <input
+              value={inputValue}
+              onChange={handleChange}
+              type="text"
+              placeholder="Entrer votre prénom.."
+              required
+          />
+      </div>
       <button>Accéder à votre espace</button>
     </LoginFormStyled>
   );
@@ -61,6 +65,32 @@ const LoginFormStyled = styled.form`
     font-size: 36px;
     margin: 20px 10px 10px;
   }
+    
+    .input-container {
+        background-color: ${theme.colors.white};
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        padding: 18px 24px;
+        margin: 18px 0;
+        
+        .input-icon {
+            font-size: 15px;
+            margin-right: 8px;
+            color: ${theme.colors.greySemiDark};
+        }
+        
+        input {
+            border: none;
+            font-size: 15px;
+            color: ${theme.colors.dark};
+        }
+        
+        &::placeholder {
+            background: ${theme.colors.white};
+            color: ${theme.colors.greyLight};
+        }
+    }
 `;
 
 export default LoginForm;
