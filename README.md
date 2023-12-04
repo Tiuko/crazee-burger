@@ -24,3 +24,15 @@ Content of the differents tickets :
 - Plan for an error page (without CSS) in case the user directly enters in the URL bar an address that matches no route or pages of the suite. 
 - The error page should display a button "Return to the homepage" that leads back to the login page.
 
+### F03 - Add style to the LoginPage (with CSS)
+
+- Replicate the mockup for the Login page only (not for OrderPage).
+- Replicate the mockup for the Login page only (not for OrderPage).
+- Change the login button label to "Access my space" (instead of "Access your space").
+
+#### Assets :
+
+- Title Font: Amatic SC ("Regular 400" and "Bold 700")
+- Body Font: OpenSans ("Medium 500")
+- Styling Library: styled-components 
+- Icon Library: react-icons
