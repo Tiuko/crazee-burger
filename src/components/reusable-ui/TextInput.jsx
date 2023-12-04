@@ -13,7 +13,7 @@ const TextInput = ({ onChange, Icon, ...extraProps }) => {
 
 const InputStyled = styled.div`
   background-color: ${theme.colors.white};
-  border-radius: 5px;
+  border-radius: ${theme.borderRadius.round};
   display: flex;
   align-items: center;
   padding: 18px 24px;
@@ -21,13 +21,13 @@ const InputStyled = styled.div`
 
   input {
     border: none;
-    font-size: 15px;
+    font-size: ${theme.fonts.size.P0};
     color: ${theme.colors.dark};
     width: 100%;
   }
 
   input::placeholder {
-    color: ${theme.colors.greyLight};
+    color: ${theme.colors.greyMedium};
   }
 `;
 
