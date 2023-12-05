@@ -36,3 +36,21 @@ Content of the differents tickets :
 - Body Font: OpenSans ("Medium 500")
 - Styling Library: styled-components 
 - Icon Library: react-icons
+
+### F04 - Creation of the navbar (with CSS)
+
+- Adhere to the style of the mockup for the navbar only.
+- On the right:
+  * Add profile icon.
+  * Add "Hey, " followed by the name of the authenticated user.
+  * When I click on "Log out", I should be redirected to the Login page.
+- On the left:
+  * Add "Crazee Burger" logo.
+  * When I click on the logo, the page should reload (like a standard refresh).
+- For now:
+  * The background should be in simple orange (without pattern): #FF9F1A (color "primary").
+  * Ignore the menu, the cart, and the admin button (they will be addressed later).
+- font-family: "Open Sans", sans-serif;
+- background: #F5F5F7.
+- box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset.
+- border-radius: 0px 0px 15px 15px.
