@@ -10,27 +10,42 @@ const OrderPage = () => {
   return (
     <OrderPageStyled>
       <div className="container">
-        <h1>Bonjour {username}</h1>
-        <Link to="/">
-          <button>Déconnexion</button>
-        </Link>
+        <div className="navbar">
+          Navbar
+          <h1>Bonjour {username}</h1>
+          <Link to="/">
+            <button>Déconnexion</button>
+          </Link>
+        </div>
+        <div className="main">Main</div>
       </div>
     </OrderPageStyled>
   );
 };
 
 const OrderPageStyled = styled.div`
-  background-color: ${theme.colors.primary};
+  background: ${theme.colors.primary};
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  
-  .container {
-	background-color: red;
-	height: 95vh;
-	width: 1400px;
 
+  .container {
+    background: red;
+    height: 95vh;
+    width: 1400px;
+    display: flex;
+    flex-direction: column;
+
+    .navbar {
+      background-color: blue;
+      height: 10vh;
+    }
+
+    .main {
+      background-color: green;
+        flex: 1;
+    }
   }
 `;
 
