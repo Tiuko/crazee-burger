@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { theme } from "../../../theme/index.js";
 import styled from "styled-components";
-import Navbar from "./Navbar.jsx";
+import NavBar from "./NavBar.jsx";
 import Main from "./Main.jsx";
 
 const OrderPage = () => {
@@ -12,7 +12,7 @@ const OrderPage = () => {
   return (
     <OrderPageStyled>
       <div className="container">
-        <Navbar username={username} />
+        <NavBar username={username} />
         <Main />
       </div>
     </OrderPageStyled>
