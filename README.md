@@ -54,3 +54,19 @@ Content of the differents tickets :
 - background: #F5F5F7.
 - box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset.
 - border-radius: 0px 0px 15px 15px.
+
+### F05 - Display Menu Products
+
+LABEL : MENU
+- Follow the mockup.
+- Prices are displayed in euros and rounded to the nearest cent.
+- In the card, if the name is too long, an ellipsis truncate the end of the word with "...".
+
+#### Assets :
+CSS for "Menu":
+- background: #F5F5F7;
+- box-shadow: 0px 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
+- padding: 50px 50px 150px;
+- grid-row-gap: 60px;
+- CSS for product cards:
+- box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%).
