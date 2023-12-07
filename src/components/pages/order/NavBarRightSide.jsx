@@ -2,11 +2,11 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import Profile from "./Profile.jsx";
 
-const NavBarRightSide = () => {
+const NavBarRightSide = ({ username }) => {
   return (
     <NavBarRightSideStyled className="right-side">
       {/*<div className="admin-button">Admin Button</div>*/}
-      <Profile />
+      <Profile username={username}/>
     </NavBarRightSideStyled>
   );
 };

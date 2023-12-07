@@ -2,6 +2,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import NavBarRightSide from "./NavBarRightSide.jsx";
 import Logo from "../../reusable-ui/Logo.jsx";
+import { theme } from "../../../theme/index.js";
 
 const NavBar = ({ username }) => {
   return (
@@ -13,11 +14,13 @@ const NavBar = ({ username }) => {
 };
 
 const NavbarStyled = styled.nav`
-  background-color: blue;
+  background-color: ${theme.colors.white};
   height: 10vh;
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
+  border-top-right-radius: ${theme.borderRadius.extraRound};
+  border-top-left-radius: ${theme.borderRadius.extraRound};
   //align-items: center;
 `;
 
