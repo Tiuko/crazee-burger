@@ -2,8 +2,8 @@ import styled from "styled-components";
 import {theme} from '../../theme/index.js';
 import PropTypes from 'prop-types';
 
-const Logo = ({ className }) => {
-  return <LogoStyled className={className}>
+const Logo = ({ className, onClick }) => {
+  return <LogoStyled className={className} onClick={onClick}>
     <h1>CRAZEE</h1>
     <img src="/images/logo-burger.png" alt="logo-crazee-burger" />
     <h1>BURGER</h1>
@@ -37,6 +37,7 @@ const LogoStyled = styled.div`
 
 Logo.propTypes = {
   className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 export default Logo;

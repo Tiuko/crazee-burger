@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 import NavBarRightSide from "./NavBarRightSide.jsx";
 import Logo from "../../reusable-ui/Logo.jsx";
 import { theme } from "../../../theme/index.js";
+import {refreshPage} from '../../../utils/helpers.js';
 
 const NavBar = ({ username }) => {
   return (
     <NavbarStyled className="navbar">
-      <Logo />
+      <Logo className="logo-order-page" onClick={refreshPage}/>
       <NavBarRightSide username={username} />
     </NavbarStyled>
   );
@@ -22,6 +23,10 @@ const NavbarStyled = styled.nav`
   border-top-right-radius: ${theme.borderRadius.extraRound};
   border-top-left-radius: ${theme.borderRadius.extraRound};
   //align-items: center;
+    
+    .logo-order-page {
+        cursor: pointer;
+    } 
 `;
 
 NavBar.propTypes = {
