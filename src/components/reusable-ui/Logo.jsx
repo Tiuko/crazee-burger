@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import {theme} from '../../theme/index.js';
+import PropTypes from 'prop-types';
 
-const Logo = () => {
-  return <LogoStyled>
+const Logo = ({ className }) => {
+  return <LogoStyled className={className}>
     <h1>CRAZEE</h1>
     <img src="/images/logo-burger.png" alt="logo-crazee-burger" />
     <h1>BURGER</h1>
@@ -12,7 +13,6 @@ const Logo = () => {
 const LogoStyled = styled.div`
   display: flex;
   align-items: center;
-  transform: scale(2.5);
   
   h1 {
     display: inline;
@@ -34,5 +34,9 @@ const LogoStyled = styled.div`
     margin: 0 5px;
   }
 `;
+
+Logo.propTypes = {
+  className: PropTypes.string,
+};
 
 export default Logo;
