@@ -2,7 +2,11 @@ import styled from "styled-components";
 import { theme } from "../../../theme/index.js";
 
 const Main = () => {
-  return <MainStyled className="main"></MainStyled>;
+  return <MainStyled className="main">
+    <div className="basket">Basket</div>
+    <div className="menu">Menu</div>
+  </MainStyled>;
+
 };
 
 const MainStyled = styled.div`
@@ -11,6 +15,18 @@ const MainStyled = styled.div`
   flex: 1;
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
+  
+  display: grid;
+  grid-template-columns: 25% 1fr;
+  
+  .menu {
+    background: purple;
+  }
+  
+  .basket {
+    background: pink;
+  }
+  
 `;
 
 export default Main;

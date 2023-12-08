@@ -29,7 +29,7 @@ const OrderPageStyled = styled.div`
   .container {
     background: red;
     height: 95vh;
-    width: 1400px;
+    width: 90vw; // width: 1400px normalement;
     display: flex;
     flex-direction: column;
     border-radius: ${theme.borderRadius.extraRound};
