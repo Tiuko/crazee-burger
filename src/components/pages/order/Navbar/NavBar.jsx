@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import NavBarRightSide from "./NavBarRightSide.jsx";
-import Logo from "../../reusable-ui/Logo.jsx";
-import { theme } from "../../../theme/index.js";
-import {refreshPage} from '../../../utils/helpers.js';
+import Logo from "../../../reusable-ui/Logo.jsx";
+import { theme } from "../../../../theme/index.js";
+import {refreshPage} from '../../../../utils/helpers.js';
 
 const NavBar = ({ username }) => {
   return (
