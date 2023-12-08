@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme/index.js";
+import Menu from './Menu.jsx';
 
 const Main = () => {
   return <MainStyled className="main">
     <div className="basket">Basket</div>
-    <div className="menu">Menu</div>
+    <Menu />
   </MainStyled>;
 
 };
@@ -18,11 +19,7 @@ const MainStyled = styled.div`
   
   display: grid;
   grid-template-columns: 25% 1fr;
-  
-  .menu {
-    background: purple;
-  }
-  
+
   .basket {
     background: pink;
   }
