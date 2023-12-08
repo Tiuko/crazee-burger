@@ -2,7 +2,7 @@ import { BsPersonCircle } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import {theme} from '../../../theme/index.js';
+import {theme} from '../../../../theme/index.js';
 
 const Profile = ({ username }) => {
   return (
@@ -68,7 +68,7 @@ const ProfileStyled = styled.div`
 `;
 
 Profile.propTypes = {
-  username: PropTypes.element,
+  username: PropTypes.string,
 };
 
 export default Profile;

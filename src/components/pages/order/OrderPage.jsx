@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { theme } from "../../../theme/index.js";
 import styled from "styled-components";
-import NavBar from "./NavBar.jsx";
-import Main from "./Main.jsx";
+import NavBar from "./NavBar/NavBar.jsx";
+import Main from "./Main/Main.jsx";
 
 const OrderPage = () => {
   // State
@@ -29,7 +29,7 @@ const OrderPageStyled = styled.div`
   .container {
     background: red;
     height: 95vh;
-    width: 1400px;
+    width: 90vw; // width: 1400px normally;
     display: flex;
     flex-direction: column;
     border-radius: ${theme.borderRadius.extraRound};

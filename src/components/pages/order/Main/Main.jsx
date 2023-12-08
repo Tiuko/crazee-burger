@@ -1,8 +1,13 @@
 import styled from "styled-components";
-import { theme } from "../../../theme/index.js";
+import { theme } from "../../../../theme/index.js";
+import Menu from './Menu.jsx';
 
 const Main = () => {
-  return <MainStyled className="main"></MainStyled>;
+  return <MainStyled className="main">
+    {/*<div className="basket">Basket</div>*/}
+    <Menu />
+  </MainStyled>;
+
 };
 
 const MainStyled = styled.div`
@@ -11,6 +16,16 @@ const MainStyled = styled.div`
   flex: 1;
   border-bottom-right-radius: ${theme.borderRadius.extraRound};
   border-bottom-left-radius: ${theme.borderRadius.extraRound};
+  
+  display: grid;
+  grid-template-columns: 1fr;
+
+  overflow-y: scroll;
+  overflow-x: scroll;
+  //.basket {
+  //  background: pink;
+  //}
+  
 `;
 
 export default Main;

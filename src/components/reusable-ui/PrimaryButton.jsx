@@ -49,7 +49,7 @@ const PrimaryButtonStyled = styled.button`
 `;
 
 PrimaryButton.propTypes = {
-  label: PropTypes.func.isRequired,
+  label: PropTypes.string,
   Icon: PropTypes.element,
 };
 

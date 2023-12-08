@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import NavBarRightSide from "./NavBarRightSide.jsx";
-import Logo from "../../reusable-ui/Logo.jsx";
-import { theme } from "../../../theme/index.js";
-import {refreshPage} from '../../../utils/helpers.js';
+import Logo from "../../../reusable-ui/Logo.jsx";
+import { theme } from "../../../../theme/index.js";
+import {refreshPage} from '../../../../utils/helpers.js';
 
 const NavBar = ({ username }) => {
   return (
@@ -22,6 +22,7 @@ const NavbarStyled = styled.nav`
   padding: 0 20px;
   border-top-right-radius: ${theme.borderRadius.extraRound};
   border-top-left-radius: ${theme.borderRadius.extraRound};
+    border-bottom: 1px solid ${theme.colors.greyLight};
   //align-items: center;
     
     .logo-order-page {
@@ -30,7 +31,7 @@ const NavbarStyled = styled.nav`
 `;
 
 NavBar.propTypes = {
-  username: PropTypes.element,
+  username: PropTypes.string,
 };
 
 export default NavBar;
