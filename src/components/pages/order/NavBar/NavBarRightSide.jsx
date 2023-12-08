@@ -24,7 +24,7 @@ const NavBarRightSideStyled = styled.div`
 `;
 
 NavBarRightSide.propTypes = {
-  username: PropTypes.element,
+  username: PropTypes.string,
 };
 
 export default NavBarRightSide;

@@ -68,7 +68,7 @@ const ProfileStyled = styled.div`
 `;
 
 Profile.propTypes = {
-  username: PropTypes.element,
+  username: PropTypes.string,
 };
 
 export default Profile;

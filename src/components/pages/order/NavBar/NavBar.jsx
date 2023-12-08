@@ -31,7 +31,7 @@ const NavbarStyled = styled.nav`
 `;
 
 NavBar.propTypes = {
-  username: PropTypes.element,
+  username: PropTypes.string,
 };
 
 export default NavBar;
