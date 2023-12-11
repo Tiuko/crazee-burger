@@ -70,3 +70,11 @@ CSS for "Menu":
 - grid-row-gap: 60px;
 - CSS for product cards:
 - box-shadow: -8px 8px 20px 0px rgb(0 0 0 / 20%).
+
+### F06 - Create the Admin Button
+
+- When the user arrives on the order page, they see an admin button in the navbar that displays "ACTIVATE ADMIN MODE".
+- When the user clicks on the admin button for the first time, the button changes and then displays "DEACTIVATE ADMIN MODE", and a pop-up/toast notification appears at the bottom right of the screen to inform them that they have entered admin mode with the message "Admin mode activated".
+- The notification toast ONLY appears when the user switches from NON-ADMIN to ADMIN mode.
+- When the user clicks on the admin button again, the button changes back and re-displays "ACTIVATE ADMIN MODE".
+- When the user reloads the page, the button returns to its initial state (the admin button displays "ACTIVATE ADMIN MODE").
