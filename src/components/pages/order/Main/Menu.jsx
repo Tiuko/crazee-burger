@@ -25,7 +25,6 @@ const Menu = () => {
 };
 
 const MenuStyled = styled.div`
-  border: 1px solid blue;
   background: ${theme.colors.white};
   display: grid;
   //grid-template-columns: repeat(4, 1fr);
