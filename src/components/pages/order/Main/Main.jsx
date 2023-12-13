@@ -1,15 +1,18 @@
 import styled from "styled-components";
 import { theme } from "../../../../theme/index.js";
 import Menu from "./Menu.jsx";
-import Admin from './Admin/Admin.jsx';
+import Admin from "./Admin/Admin.jsx";
+import OrderContext from "../../../../context/OrderContext.jsx";
+import { useContext } from "react";
 
 const Main = () => {
+  const { isModeAdmin} = useContext(OrderContext);
   return (
     <MainStyled className="main">
       {/*<div className="basket">Basket</div>*/}
       <div className="menu-and-admin">
         <Menu />
-        <Admin />
+        {isModeAdmin && <Admin />}
       </div>
     </MainStyled>
   );
@@ -36,7 +39,6 @@ const MainStyled = styled.div`
     display: grid;
     border-bottom-right-radius: ${theme.borderRadius.extraRound};
     border-bottom-left-radius: ${theme.borderRadius.extraRound};
-
   }
 `;
 
