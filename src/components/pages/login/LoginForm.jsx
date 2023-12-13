@@ -72,7 +72,7 @@ const LoginFormStyled = styled.form`
   }
 
   .input-icon {
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     margin-right: ${theme.gridUnit}px;
     color: ${theme.colors.greySemiDark};
   }
@@ -81,7 +81,7 @@ const LoginFormStyled = styled.form`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: ${theme.fonts.size.P0};
+    font-size: ${theme.fonts.size.SM};
     margin-left: 10px;
   }
 `;
