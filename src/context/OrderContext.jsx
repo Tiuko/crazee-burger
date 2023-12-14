@@ -12,6 +12,9 @@ const OrderContext = createContext({
 
   isEditSelected: false,
   setIsEditSelected: () => {},
+
+  currentTabSelected: "add",
+  setCurrentTabSelected: () => {},
 });
 
 export default OrderContext;
