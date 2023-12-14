@@ -5,11 +5,11 @@ import Logo from "../../../reusable-ui/Logo.jsx";
 import { theme } from "../../../../theme/index.js";
 import {refreshPage} from '../../../../utils/helpers.js';
 
-const NavBar = ({ username }) => {
+const NavBar = () => {
   return (
     <NavbarStyled className="navbar">
       <Logo className="logo-order-page" onClick={refreshPage}/>
-      <NavBarRightSide username={username} />
+      <NavBarRightSide />
     </NavbarStyled>
   );
 };

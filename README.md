@@ -78,3 +78,15 @@ CSS for "Menu":
 - The notification toast ONLY appears when the user switches from NON-ADMIN to ADMIN mode.
 - When the user clicks on the admin button again, the button changes back and re-displays "ACTIVATE ADMIN MODE".
 - When the user reloads the page, the button returns to its initial state (the admin button displays "ACTIVATE ADMIN MODE").
+
+### F07 - Show / Minimize / Open the Admin Panel
+
+- When the user enters ADMIN mode, the panel appears and displays three tabs: "minimize/open", "add a product", and "modify a product". The "add a product" tab is the default displayed tab.
+- When the user enters ADMIN mode, they can minimize and then reopen the admin panel without completely hiding it, and with the last opened tab highlighted just before minimizing the panel.
+- When the user is in ADMIN mode and the admin panel is minimized, if they click on "add a product", the panel automatically opens on the "add a product" tab.
+- When the user is in ADMIN mode and the admin panel is minimized, if they click on "modify a product", the panel automatically opens on the "modify a product" tab.
+- When I exit and return to ADMIN mode, the state of the panel should be saved (e.g., if I exit admin mode while the panel is minimized on the "modify a product" tab, when I return to ADMIN mode, the panel should still be minimized and remain on the same previously selected and minimized "modify a product" tab).
+
+#### Assets : 
+
+- Use those react-icons : FiChevronDown, FiChevronUp, AiOutlinePlus, MdModeEditOutline
