@@ -1,12 +1,33 @@
-import styled from "styled-components";
 import Tab from "../../../../reusable-ui/Tab.jsx";
-import { FiChevronDown, FiChevronUp } from "react-icons/fi";
-import {AiOutlinePlus} from 'react-icons/ai';
-import PropTypes from "prop-types";
+import styled from "styled-components";
 import { theme } from "../../../../../theme/index.js";
+import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import { AiOutlinePlus } from "react-icons/ai";
+import { MdModeEditOutline } from "react-icons/md";
+import { useContext } from "react";
+import OrderContext from "../../../../../context/OrderContext.jsx";
 
+const AdminTabs = () => {
+  const {
+    isCollapsed,
+    setIsCollapsed,
+    isAddSelected,
+    setIsAddSelected,
+    isEditSelected,
+    setIsEditSelected,
+  } = useContext(OrderContext);
+  const selectAddTab = () => {
+    setIsCollapsed(false);
+    setIsAddSelected(true);
+    setIsEditSelected(false);
+  };
 
-const AdminTabs = ({ isCollapsed, setIsCollapsed }) => {
+  const selectEditTab = () => {
+    setIsCollapsed(false);
+    setIsEditSelected(true);
+    setIsAddSelected(false);
+  };
+
   return (
     <AdminTabsStyled>
       <Tab
@@ -17,17 +38,18 @@ const AdminTabs = ({ isCollapsed, setIsCollapsed }) => {
       />
       <Tab
         label="Ajouter un produit"
-        Icon={AiOutlinePlus()}
-        onClick={() => setIsCollapsed(!isCollapsed)}
-        className={isCollapsed ? "is-active" : ""}
+        Icon={<AiOutlinePlus />}
+        onClick={selectAddTab}
+        className={isAddSelected ? "is-active" : ""}
+      />
+      <Tab
+        label="Modifier un produit"
+        Icon={<MdModeEditOutline />}
+        onClick={selectEditTab}
+        className={isEditSelected ? "is-active" : ""}
       />
     </AdminTabsStyled>
   );
-};
-
-AdminTabs.propTypes = {
-  isCollapsed: PropTypes.bool.isRequired,
-  setIsCollapsed: PropTypes.func.isRequired,
 };
 
 const AdminTabsStyled = styled.div`
@@ -39,10 +61,10 @@ const AdminTabsStyled = styled.div`
     border-color: ${theme.colors.background_dark};
     color: ${theme.colors.white};
   }
-    
-    button {
-        margin-left: 1px;
-    }
+
+  button {
+    margin-left: 1px;
+  }
 `;
 
 export default AdminTabs;
