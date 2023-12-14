@@ -2,15 +2,17 @@ import styled from "styled-components";
 import { theme } from "../../theme/index.js";
 import PropTypes from "prop-types";
 
-const Tab = ({ Icon, onClick, className }) => {
+const Tab = ({ label, Icon, onClick, className }) => {
   return (
     <TabStyled onClick={onClick} className={className}>
       <div className="icon">{Icon}</div>
+      {label && <span className="label">{label}</span>}
     </TabStyled>
   );
 };
 
 Tab.propTypes = {
+  label: PropTypes.string.isRequired,
   Icon: PropTypes.element.isRequired,
   onClick: PropTypes.func.isRequired,
   className: PropTypes.string,
@@ -51,6 +53,10 @@ const TabStyled = styled.button`
 
   .icon {
     display: flex;
+  }
+  
+  .label {
+    margin-left: 13px;
   }
 `;
 
