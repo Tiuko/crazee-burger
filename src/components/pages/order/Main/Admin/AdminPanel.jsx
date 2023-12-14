@@ -13,7 +13,7 @@ const AdminPanel = () => {
 
   return (
     <AdminPanelStyled className="panel-admin">
-      {currentTabSelected === tabSelected.index && tabSelected.label}
+      {tabSelected && tabSelected.label}
     </AdminPanelStyled>
   );
 };
