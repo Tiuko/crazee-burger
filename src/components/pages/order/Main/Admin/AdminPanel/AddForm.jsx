@@ -10,7 +10,7 @@ const AddForm = () => {
         <input type="text" placeholder="Image URL" />
         <input type="text" placeholder="Prix" />
       </div>
-      <div className="submit-button">SubmitButton</div>
+      <button className="submit-button">Submit button</button>
     </AddFormStyled>
   );
 };
@@ -32,13 +32,14 @@ const AddFormStyled = styled.form`
   .input-fields {
     background: blue;
     grid-area: 1 / 2 / 4 / 3;
-      
-      display: grid;
+
+    display: grid;
   }
 
   .submit-button {
     background: green;
     grid-area: 4 / 2 / -1 / -1;
+    width: 50%;
   }
 `;
 
