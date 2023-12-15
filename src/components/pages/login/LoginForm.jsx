@@ -9,7 +9,7 @@ import PrimaryButton from "../../reusable-ui/PrimaryButton.jsx";
 
 const LoginForm = () => {
   // State
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState("Peter");
   const navigate = useNavigate();
 
   // Behaviors
