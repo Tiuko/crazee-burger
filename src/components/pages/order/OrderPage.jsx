@@ -4,6 +4,7 @@ import NavBar from "./NavBar/NavBar.jsx";
 import Main from "./Main/Main.jsx";
 import { useState } from "react";
 import OrderContext from "../../../context/OrderContext.jsx";
+import {fakeMenu} from '../../../fakeData/fakeMenu.js';
 
 const OrderPage = () => {
   // State
@@ -12,8 +13,15 @@ const OrderPage = () => {
   const [isAddSelected, setIsAddSelected] = useState(true);
   const [isEditSelected, setIsEditSelected] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
+  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
 
   // Behaviors
+  const handleAdd = (newProduct) => {
+    const menuCopy = [...menu];
+    const menuUpdated = [newProduct,...menuCopy];
+    setMenu(menuUpdated);
+  }
+
   const orderContextValue = {
     isModeAdmin,
     setIsModeAdmin,
@@ -25,6 +33,9 @@ const OrderPage = () => {
     setIsEditSelected,
     currentTabSelected,
     setCurrentTabSelected,
+    menu,
+    setMenu,
+    handleAdd,
   };
 
   // Render

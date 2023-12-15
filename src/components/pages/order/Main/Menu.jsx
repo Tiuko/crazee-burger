@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import { useState } from "react";
-import { fakeMenu } from "../../../../fakeData/fakeMenu.js";
+import { useContext } from "react";
 import { theme } from "../../../../theme/index.js";
 import Card from "../../../reusable-ui/Card.jsx";
-import {formatPrice} from '../../../../utils/helpers.js';
+import { formatPrice } from "../../../../utils/helpers.js";
+import OrderContext from "../../../../context/OrderContext.jsx";
 
 const Menu = () => {
-  const [menu, setMenu] = useState(fakeMenu.MEDIUM);
+  const { menu } = useContext(OrderContext);
 
   return (
     <MenuStyled className="menu">

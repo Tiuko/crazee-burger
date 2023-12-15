@@ -15,6 +15,10 @@ const OrderContext = createContext({
 
   currentTabSelected: "add",
   setCurrentTabSelected: () => {},
+
+  menu: [],
+  setMenu: () => {},
+  handleAdd: () => {},
 });
 
 export default OrderContext;

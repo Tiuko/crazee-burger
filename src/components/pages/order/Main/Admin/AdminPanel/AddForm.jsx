@@ -1,9 +1,25 @@
 import styled from "styled-components";
 import { theme } from "../../../../../../theme/index.js";
+import OrderContext from "../../../../../../context/OrderContext.jsx";
+import { useContext } from "react";
 
 const AddForm = () => {
+  const { handleAdd } = useContext(OrderContext);
+
+    const newProduct = {
+        id: new Date().getTime(),
+        title: "Nouveau produit",
+        imageSource: "https://www.biofournil.com/wp-content/uploads/2021/02/BRIOCHE-BIOFOURNIL_web.jpg",
+        price: 2.5,
+    }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    handleAdd(newProduct);
+  };
+
   return (
-    <AddFormStyled>
+    <AddFormStyled onSubmit={handleSubmit}>
       <div className="image-preview">ImagePreview</div>
       <div className="input-fields">
         <input type="text" placeholder="Nom" />
