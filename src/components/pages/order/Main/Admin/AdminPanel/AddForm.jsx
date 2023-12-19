@@ -6,8 +6,7 @@ import { useContext, useState } from "react";
 const EMPTY_PRODUCT = {
   id: "",
   title: "",
-  imageSource:
-    "",
+  imageSource: "",
   price: 0,
 };
 
@@ -35,7 +34,13 @@ const AddForm = () => {
 
   return (
     <AddFormStyled onSubmit={handleSubmit}>
-      <div className="image-preview">Aucune image</div>
+      <div className="image-preview">
+        {newProduct.imageSource ? (
+          <img src={newProduct.imageSource} alt={newProduct.title} />
+        ) : (
+          <div className="image-preview">Aucune image</div>
+        )}
+      </div>
       <div className="input-fields">
         <input
           name="title"
@@ -74,8 +79,17 @@ const AddFormStyled = styled.form`
   width: 70%;
 
   .image-preview {
-    background: red;
     grid-area: 1 / 1 / 4 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
   }
 
   .input-fields {
