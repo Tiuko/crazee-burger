@@ -34,7 +34,6 @@ const OrderPage = () => {
     currentTabSelected,
     setCurrentTabSelected,
     menu,
-    setMenu,
     handleAdd,
   };
 
