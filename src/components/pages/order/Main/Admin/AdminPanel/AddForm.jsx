@@ -5,10 +5,10 @@ import { useContext, useState } from "react";
 
 const EMPTY_PRODUCT = {
   id: "",
-  title: "Bonbons",
+  title: "",
   imageSource:
-    "https://media.carrefour.fr/medias/16afeefb50193752bf365d84b2d6f3d7/p_1500x1500/03103220034804-c1n1-s03.jpg",
-  price: 14,
+    "",
+  price: 0,
 };
 
 const AddForm = () => {
