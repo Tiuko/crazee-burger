@@ -22,17 +22,15 @@ const AddForm = () => {
 
     const newProductToAdd = {
       ...newProduct,
-      id: new Date().getTime(),
+      id: crypto.randomUUID(),
     };
 
     handleAdd(newProductToAdd);
   };
 
   const handleChange = (event) => {
-    const newValue = event.target.value;
-    const name = event.target.name;
-
-    setNewProduct({ ...newProduct, [name]: newValue });
+    const { name, value } = event.target;
+    setNewProduct({ ...newProduct, [name]: value });
   };
 
   return (
