@@ -8,7 +8,15 @@ import OrderContext from "../../../../context/OrderContext.jsx";
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
 const Menu = () => {
-  const { menu, isModeAdmin, handleDelete } = useContext(OrderContext);
+  const { menu, isModeAdmin, handleDelete, resetMenu } = useContext(OrderContext);
+
+  if (menu.length === 0)
+    return (
+      <div>
+        <span>Aucun produit</span>;
+        <button onClick={resetMenu}>Générer de nouveaux produits</button>
+      </div>
+    );
 
   return (
     <MenuStyled className="menu">
