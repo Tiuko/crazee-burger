@@ -3,6 +3,10 @@ import { theme } from "../../../../../../theme/index.js";
 import OrderContext from "../../../../../../context/OrderContext.jsx";
 import { useContext, useState } from "react";
 import { FiCheck } from "react-icons/fi";
+import TextInput from "../../../../../reusable-ui/TextInput.jsx";
+import { FaHamburger } from "react-icons/fa";
+import { BsFillCameraFill } from "react-icons/bs";
+import { MdOutlineEuro } from "react-icons/md";
 
 const EMPTY_PRODUCT = {
   id: "",
@@ -52,26 +56,32 @@ const AddForm = () => {
         )}
       </div>
       <div className="input-fields">
-        <input
+        <TextInput
           name="title"
           value={newProduct.title}
           type="text"
           placeholder="Nom du produit (ex : Super Burger)"
           onChange={handleChange}
+          Icon={<FaHamburger />}
+          version="minimalist"
         />
-        <input
+        <TextInput
           name="imageSource"
           value={newProduct.imageSource}
           type="text"
           placeholder="Lien URL d'une image(ex : https://la-photo-de-mon-produit.png)"
           onChange={handleChange}
+          Icon={<BsFillCameraFill />}
+          version="minimalist"
         />
-        <input
+        <TextInput
           name="price"
           value={newProduct.price ? newProduct.price : ""}
           type="text"
           placeholder="Prix"
           onChange={handleChange}
+          Icon={<MdOutlineEuro />}
+          version="minimalist"
         />
       </div>
       <div className="submit">
@@ -108,7 +118,7 @@ const AddFormStyled = styled.form`
       object-fit: contain;
       object-position: center;
     }
-    
+
     .empty-image {
       height: 100%;
       width: 100%;
@@ -123,14 +133,13 @@ const AddFormStyled = styled.form`
   }
 
   .input-fields {
-    background: blue;
     grid-area: 1 / 2 / 4 / 3;
 
     display: grid;
+    grid-row-gap: 8px;
   }
 
   .submit {
-    background: green;
     grid-area: 4 / 2 / -1 / -1;
     display: flex;
     align-items: center;
