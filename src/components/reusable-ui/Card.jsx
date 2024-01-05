@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { theme } from "../../theme/index.js";
-import PrimaryButton from "./PrimaryButton.jsx";
+import Button from "./Button.jsx";
 import { TiDelete } from "react-icons/ti";
 
 const Card = ({
@@ -30,7 +30,7 @@ const Card = ({
         <div className="description">
           <div className="left-description">{leftDescription}</div>
           <div className="right-description">
-            <PrimaryButton className="primary-button" label={"Ajouter"} />
+            <Button className="primary-button" label={"Ajouter"} />
           </div>
         </div>
       </div>
