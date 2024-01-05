@@ -18,3 +18,10 @@ export function replaceFrenchCommaWithDot(price) {
   if (typeof price === "string") price = parseFloat(price.replace(",", "."));
   return price;
 }
+
+export const EMPTY_PRODUCT = {
+  id: "",
+  title: "",
+  imageSource: "",
+  price: 0,
+};

@@ -1,11 +1,27 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { theme } from "../../theme/index.js";
-import PrimaryButton from "./PrimaryButton.jsx";
+import Button from "./Button.jsx";
+import { TiDelete } from "react-icons/ti";
 
-const Card = ({ title, imageSource, leftDescription }) => {
+const Card = ({
+  title,
+  imageSource,
+  leftDescription,
+  hasDeleteButton,
+  onDelete,
+}) => {
   return (
     <CardStyled className="produit">
+      {hasDeleteButton && (
+        <button
+          className="delete-button"
+          aria-label="delete-button"
+          onClick={onDelete}
+        >
+          <TiDelete className="icon" />
+        </button>
+      )}
       <div className="image">
         <img src={imageSource} alt={title} />
       </div>
@@ -14,7 +30,7 @@ const Card = ({ title, imageSource, leftDescription }) => {
         <div className="description">
           <div className="left-description">{leftDescription}</div>
           <div className="right-description">
-            <PrimaryButton className="primary-button" label={"Ajouter"} />
+            <Button className="primary-button" label={"Ajouter"} />
           </div>
         </div>
       </div>
@@ -26,6 +42,8 @@ Card.propTypes = {
   title: PropTypes.string.isRequired,
   imageSource: PropTypes.string.isRequired,
   leftDescription: PropTypes.string.isRequired,
+  hasDeleteButton: PropTypes.bool.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 const CardStyled = styled.div`
@@ -38,6 +56,33 @@ const CardStyled = styled.div`
   padding: 0 20px 0 20px;
   box-shadow: -8px 8px 20px 0 rgb(0 0 0 / 20%);
   border-radius: ${theme.borderRadius.extraRound};
+  position: relative;
+
+  .delete-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    color: ${theme.colors.primary};
+    z-index: 2;
+    padding: 0;
+    border: none;
+    background: none;
+
+    .icon {
+      height: 100%;
+      width: 100%;
+    }
+
+    :hover {
+      color: ${theme.colors.red};
+    }
+    :active {
+      color: ${theme.colors.primary};
+    }
+  }
 
   .image {
     width: 100%;

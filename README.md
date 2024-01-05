@@ -90,3 +90,36 @@ CSS for "Menu":
 #### Assets : 
 
 - Use those react-icons : FiChevronDown, FiChevronUp, AiOutlinePlus, MdModeEditOutline
+
+### F08 - Create the Admin Panel (adding and deleting new product live)
+
+- When I click on the "Add a Product" tab in the Admin panel, I see a form (empty) for adding the product. I can enter 3 fields: name, price, and product image with a product preview image.
+- None of the fields are mandatory. "No required".
+
+The NAME field:
+
+- will indicate in placeholder: "Product name (e.g., Super Burger)". If not filled in and the form is submitted, the card will display a blank in the place of the product name.
+The IMAGE field:
+- will indicate in placeholder: "URL link of an image (e.g., https://photo-of-my-product.png)".
+- will only accept URL links. If not filled in and the form is submitted, the "coming soon" image is displayed by default (see available in the assets).
+
+The PRICE field:
+
+- will indicate in placeholder: "Price".
+- will accept comma-separated amounts (French notation). E.g., "2119,56", and "2119.56" will result in a price displayed on the menu card of "€2,119.56". If not filled in and the form is submitted, the value is €0.00.
+
+In Admin mode, when I submit my form (filled in or not):
+
+- a new product appears in the menu with the information provided (if provided)
+- a message "Added successfully!" then appears for 2 seconds before disappearing.
+- the form is cleared
+
+No error handling here. They will possibly be dealt with later in another ticket (e.g., in the IMAGE field, we are not managing the case where entering text that is not a URL is not allowed, etc).
+
+To DELETE PRODUCT : 
+
+When I enter Admin mode, I see buttons appear to delete products from my menu. Outside of Admin mode, these buttons are therefore not visible.
+
+If all the products in the Menu have been deleted, then a button appears to generate new default products. Only the user in ADMIN mode is allowed to regenerate products.
+
+The user in CLIENT mode will read another out-of-stock message (see mockup).
