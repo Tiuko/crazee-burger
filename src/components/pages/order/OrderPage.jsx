@@ -10,7 +10,7 @@ import {EMPTY_PRODUCT} from '../../../utils/helpers.js';
 
 const OrderPage = () => {
   // State
-  const [isModeAdmin, setIsModeAdmin] = useState(true);
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isAddSelected, setIsAddSelected] = useState(true);
   const [isEditSelected, setIsEditSelected] = useState(false);
