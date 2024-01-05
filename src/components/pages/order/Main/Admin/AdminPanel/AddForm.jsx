@@ -2,12 +2,12 @@ import styled from "styled-components";
 import { theme } from "../../../../../../theme/index.js";
 import OrderContext from "../../../../../../context/OrderContext.jsx";
 import { useContext, useState } from "react";
-import { FiCheck } from "react-icons/fi";
 import TextInput from "../../../../../reusable-ui/TextInput.jsx";
 import { FaHamburger } from "react-icons/fa";
 import { BsFillCameraFill } from "react-icons/bs";
 import { MdOutlineEuro } from "react-icons/md";
 import Button from "../../../../../reusable-ui/Button.jsx";
+import SubmitMessage from './SubmitMessage.jsx';
 
 const EMPTY_PRODUCT = {
   id: "",
@@ -91,12 +91,7 @@ const AddForm = () => {
           label={"Ajouter un nouveau produit au menu"}
           version="success"
         />
-        {isSubmitted && (
-          <div className="submit-message">
-            <FiCheck />
-            <span>Ajouté avec succès !</span>
-          </div>
-        )}
+        {isSubmitted && <SubmitMessage />}
       </div>
     </AddFormStyled>
   );
@@ -148,6 +143,7 @@ const AddFormStyled = styled.form`
     grid-area: 4 / 2 / -1 / -1;
     display: flex;
     align-items: center;
+    top: 3px;
 
     .submit-button {
       width: 50%;
