@@ -123,3 +123,23 @@ When I enter Admin mode, I see buttons appear to delete products from my menu. O
 If all the products in the Menu have been deleted, then a button appears to generate new default products. Only the user in ADMIN mode is allowed to regenerate products.
 
 The user in CLIENT mode will read another out-of-stock message (see mockup).
+
+### F09: Create the Admin Panel (editing an existing product live)
+
+Hoverable Cards in Admin Mode: When I enter Admin mode, the cards become "hoverable". Hovering over a card shows a halo around it to indicate it's selectable.
+
+Edit Product Tab: Clicking on the "edit a product" tab in the admin panel displays a hint message: "Click on a menu product to edit it."
+
+Selecting a Product: On clicking a hoverable card in the menu:
+
+1. The card is highlighted in orange (refer to Figma mockup).
+2. The admin panel opens on the "edit a product" tab.
+3. A prefilled form appears with the selected product's information (name, URL link/preview, and price), similar to the add product form.
+4. Focus is set on the "product name" field at the end of the product name.
+5. Editing Empty Products: Clicking on an "empty" product in the menu (without a name, image, and price) displays an empty edit form.
+
+Real-Time Updates: Modifying product information in the "edit a product" tab updates the information in the menu in real-time.
+
+Resuming Edits: Exiting and re-entering admin mode allows for resuming modifications at the same state as before exiting.
+
+Site Name Change: Change the site name from the favicon.ico in the assets to "Crazee Burger | YOUR_NAME" (e.g., "Crazee Burger | Martin" for someone named Martin).
