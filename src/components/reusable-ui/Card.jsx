@@ -10,9 +10,10 @@ const Card = ({
   leftDescription,
   hasDeleteButton,
   onDelete,
+  onClick,
 }) => {
   return (
-    <CardStyled className="produit">
+    <CardStyled className="produit" onClick={onClick}>
       {hasDeleteButton && (
         <button
           className="delete-button"
@@ -44,6 +45,7 @@ Card.propTypes = {
   leftDescription: PropTypes.string.isRequired,
   hasDeleteButton: PropTypes.bool.isRequired,
   onDelete: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 const CardStyled = styled.div`

@@ -4,9 +4,9 @@ import { useContext, useState } from "react";
 import TextInput from "../../../../../reusable-ui/TextInput.jsx";
 import Button from "../../../../../reusable-ui/Button.jsx";
 import SubmitMessage from "./SubmitMessage.jsx";
-import { EMPTY_PRODUCT } from "../../../../../../utils/helpers.js";
 import ImagePreview from "./ImagePreview.jsx";
 import { getInputTextsConfig } from "./inputTextConfig.jsx";
+import {EMPTY_PRODUCT} from '../../../../../enums/product.js';
 
 const AddForm = () => {
   // State

@@ -23,6 +23,9 @@ const OrderContext = createContext({
 
   newProduct: () => {},
   setNewProduct: () => {},
+
+  productSelected: () => {},
+  setProductSelected: () => {},
 });
 
 export default OrderContext;

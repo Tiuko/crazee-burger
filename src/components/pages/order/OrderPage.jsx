@@ -5,7 +5,7 @@ import Main from "./Main/Main.jsx";
 import { useState } from "react";
 import OrderContext from "../../../context/OrderContext.jsx";
 import {fakeMenu} from '../../../fakeData/fakeMenu.js';
-import {EMPTY_PRODUCT} from '../../../utils/helpers.js';
+import {EMPTY_PRODUCT} from '../../enums/product.js';
 
 
 const OrderPage = () => {
@@ -17,6 +17,7 @@ const OrderPage = () => {
   const [currentTabSelected, setCurrentTabSelected] = useState("edit");
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const [productSelected, setProductSelected] = useState({EMPTY_PRODUCT});
 
   // Behaviors
   const handleAdd = (newProduct) => {
@@ -54,6 +55,8 @@ const OrderPage = () => {
     resetMenu,
     newProduct,
     setNewProduct,
+    productSelected,
+    setProductSelected,
   };
 
   // Render
