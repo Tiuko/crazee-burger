@@ -10,11 +10,11 @@ import {EMPTY_PRODUCT} from '../../../utils/helpers.js';
 
 const OrderPage = () => {
   // State
-  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [isModeAdmin, setIsModeAdmin] = useState(true);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isAddSelected, setIsAddSelected] = useState(true);
   const [isEditSelected, setIsEditSelected] = useState(false);
-  const [currentTabSelected, setCurrentTabSelected] = useState("add");
+  const [currentTabSelected, setCurrentTabSelected] = useState("edit");
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
 
