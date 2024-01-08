@@ -1,19 +1,20 @@
 import styled from "styled-components";
-import HintMessage from "./HintMessage.jsx";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import OrderContext from "../../../../../../context/OrderContext.jsx";
 import ImagePreview from "./ImagePreview.jsx";
 import TextInput from "../../../../../reusable-ui/TextInput.jsx";
 import { getInputTextsConfig } from "./inputTextConfig.jsx";
-import { EMPTY_PRODUCT } from "../../../../../enums/product.js";
 
 const EditForm = () => {
-  const { productSelected } = useContext(OrderContext);
+  const { productSelected, setProductSelected, handleEdit } =
+    useContext(OrderContext);
   const inputTexts = getInputTextsConfig(productSelected);
-  const [productBeingEdited, setProductBeingEdited] = useState(EMPTY_PRODUCT);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setProductBeingEdited({ ...productBeingEdited, [name]: value });
+    const productBeingUpdated = { ...productSelected, [name]: value };
+    setProductSelected(productBeingUpdated);
+    handleEdit(productBeingUpdated);
   };
   return (
     <EditFormStyled>

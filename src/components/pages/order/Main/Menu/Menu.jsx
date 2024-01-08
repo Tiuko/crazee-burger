@@ -19,9 +19,11 @@ const Menu = () => {
   }
 
   const handleClick = (idProductClicked) => {
-    const productSelected = menu.find((product) => product.id === idProductClicked);
+    const productSelected = menu.find(
+      (product) => product.id === idProductClicked,
+    );
     setProductSelected(productSelected);
-  }
+  };
 
   return (
     <MenuStyled className="menu">
