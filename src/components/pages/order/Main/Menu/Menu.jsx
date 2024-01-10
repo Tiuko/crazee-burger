@@ -6,6 +6,7 @@ import {checkIfProductIsClicked, formatPrice} from '../../../../../utils/helpers
 import OrderContext from "../../../../../context/OrderContext.jsx";
 import EmptyMenuAdmin from "./EmptyMenuAdmin.jsx";
 import EmptyMenuClient from "./EmptyMenuClient.jsx";
+import {EMPTY_PRODUCT} from '../../../../enums/product.js';
 
 
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
@@ -28,11 +29,18 @@ const Menu = () => {
   }
 
   const handleClick = (idProductClicked) => {
+    if (!isModeAdmin) return
     const productClickedOn = menu.find(
       (product) => product.id === idProductClicked,
     );
     setProductSelected(productClickedOn);
   };
+
+  const handleCardDelete = (event, idProductToDelete) => {
+    event.stopPropagation()
+    handleDelete(idProductToDelete)
+    idProductToDelete === productSelected.id && setProductSelected(EMPTY_PRODUCT)
+  }
 
   return (
     <MenuStyled className="menu">
@@ -44,7 +52,7 @@ const Menu = () => {
             imageSource={imageSource ? imageSource : IMAGE_BY_DEFAULT}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
-            onDelete={() => handleDelete(id)}
+            onDelete={(event) => handleCardDelete(event, id)}
             onClick={() => handleClick(id)}
             isHoverable={isModeAdmin}
             isSelected={checkIfProductIsClicked(id, productSelected.id)}

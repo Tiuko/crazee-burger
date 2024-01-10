@@ -15,8 +15,13 @@ const Card = ({
   isSelected,
 }) => {
   return (
-    <CardStyled className="produit" onClick={onClick} isHoverable={isHoverable} isSelected={isSelected}>
-      <div className="card" style={isSelected ? {background: "orange"} : {}}>
+    <CardStyled
+      className="produit"
+      onClick={onClick}
+      isHoverable={isHoverable}
+      isSelected={isSelected}
+    >
+      <div className="card">
         {hasDeleteButton && (
           <button
             className="delete-button"
@@ -34,7 +39,11 @@ const Card = ({
           <div className="description">
             <div className="left-description">{leftDescription}</div>
             <div className="right-description">
-              <Button className="primary-button" label={"Ajouter"} />
+              <Button
+                className="primary-button"
+                label={"Ajouter"}
+                onClick={(event) => event.stopPropagation()}
+              />
             </div>
           </div>
         </div>
@@ -55,9 +64,8 @@ Card.propTypes = {
 };
 
 const CardStyled = styled.div`
-  ${({ isHoverable }) => isHoverable && hoverableStyle}
-
   .card {
+    ${({ isHoverable }) => isHoverable && hoverableStyle}
     background: ${theme.colors.white};
     width: 240px;
     height: 330px;
@@ -158,7 +166,8 @@ const CardStyled = styled.div`
         }
       }
     }
-    ${({ isHoverable, isSelected }) => isHoverable && isSelected && selectedStyle}
+    ${({ isHoverable, isSelected }) =>
+      isHoverable && isSelected && selectedStyle}
   }
 `;
 
@@ -226,6 +235,6 @@ const selectedStyle = css`
       }
     }
   }
-`
+`;
 
 export default Card;
