@@ -1,21 +1,18 @@
+import React from 'react';
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import { theme } from "../../theme/index.js";
 
-const TextInput = ({
-  onChange,
-  Icon,
-  className,
-  version = "normal",
-  ...extraProps
-}) => {
-  return (
-    <TextInputStyled className={className} version={version}>
-      <div className="icon">{Icon && Icon}</div>
-      <input onChange={onChange} type="text" {...extraProps} />
-    </TextInputStyled>
-  );
-};
+const TextInput = React.forwardRef(
+    ({ onChange, Icon, className, version = "normal", ...extraProps }, ref) => {
+      return (
+          <TextInputStyled className={className} version={version}>
+            <div className="icon">{Icon && Icon}</div>
+            <input ref={ref} onChange={onChange} type="text" {...extraProps} />
+          </TextInputStyled>
+      )
+    }
+)
 
 const TextInputStyled = styled.div`
   background-color: ${theme.colors.white};
