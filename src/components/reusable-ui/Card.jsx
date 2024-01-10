@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import styled, {css} from 'styled-components';
+import styled, { css } from "styled-components";
 import { theme } from "../../theme/index.js";
 import Button from "./Button.jsx";
 import { TiDelete } from "react-icons/ti";
@@ -12,10 +12,11 @@ const Card = ({
   onDelete,
   onClick,
   isHoverable,
+  isSelected,
 }) => {
   return (
-    <CardStyled className="produit" onClick={onClick} isHoverable={isHoverable}>
-      <div className="card">
+    <CardStyled className="produit" onClick={onClick} isHoverable={isHoverable} isSelected={isSelected}>
+      <div className="card" style={isSelected ? {background: "orange"} : {}}>
         {hasDeleteButton && (
           <button
             className="delete-button"
@@ -50,11 +51,12 @@ Card.propTypes = {
   onDelete: PropTypes.func.isRequired,
   onClick: PropTypes.func.isRequired,
   isHoverable: PropTypes.bool.isRequired,
+  isSelected: PropTypes.bool.isRequired,
 };
 
 const CardStyled = styled.div`
-${(props) => props.isHoverable && hoverableStyle}
-  
+  ${({ isHoverable }) => isHoverable && hoverableStyle}
+
   .card {
     background: ${theme.colors.white};
     width: 240px;
@@ -156,6 +158,7 @@ ${(props) => props.isHoverable && hoverableStyle}
         }
       }
     }
+    ${({ isHoverable, isSelected }) => isHoverable && isSelected && selectedStyle}
   }
 `;
 
@@ -166,7 +169,63 @@ const hoverableStyle = css`
     box-shadow: ${theme.shadows.orangeHighlight};
     cursor: pointer;
   }
-`
+`;
 
+const selectedStyle = css`
+  background: ${theme.colors.primary};
+  .primary-button {
+    color: ${theme.colors.primary};
+    background-color: ${theme.colors.white};
+    border: 1px solid ${theme.colors.white};
+    transition: all 200ms ease-out;
+    &:hover {
+      color: ${theme.colors.white};
+      background-color: ${theme.colors.primary};
+      border: 1px solid ${theme.colors.white};
+      transition: all 200ms ease-out;
+    }
+    &:active {
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary};
+    }
+
+    &.is-disabled {
+      opacity: 50%;
+      cursor: not-allowed;
+      z-index: 2;
+    }
+
+    &.with-focus {
+      border: 1px solid white;
+      background-color: ${theme.colors.white};
+      color: ${theme.colors.primary};
+      &:hover {
+        color: ${theme.colors.white};
+        background-color: ${theme.colors.primary};
+        border: 1px solid ${theme.colors.white};
+      }
+      &:active {
+        background-color: ${theme.colors.white};
+        color: ${theme.colors.primary};
+      }
+    }
+  }
+
+  .delete-button {
+    color: ${theme.colors.white};
+
+    :active {
+      color: ${theme.colors.white};
+    }
+  }
+
+  .text-info {
+    .description {
+      .left-description {
+        color: ${theme.colors.white};
+      }
+    }
+  }
+`
 
 export default Card;

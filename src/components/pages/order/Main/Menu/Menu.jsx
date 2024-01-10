@@ -2,16 +2,25 @@ import styled from "styled-components";
 import { useContext } from "react";
 import { theme } from "../../../../../theme/index.js";
 import Card from "../../../../reusable-ui/Card.jsx";
-import { formatPrice } from "../../../../../utils/helpers.js";
+import {checkIfProductIsClicked, formatPrice} from '../../../../../utils/helpers.js';
 import OrderContext from "../../../../../context/OrderContext.jsx";
 import EmptyMenuAdmin from "./EmptyMenuAdmin.jsx";
 import EmptyMenuClient from "./EmptyMenuClient.jsx";
 
+
 const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
 
 const Menu = () => {
-  const { menu, isModeAdmin, handleDelete, resetMenu, setProductSelected } =
-    useContext(OrderContext);
+  const {
+    menu,
+    isModeAdmin,
+    handleDelete,
+    resetMenu,
+    setProductSelected,
+    productSelected,
+  } = useContext(OrderContext);
+
+
 
   if (menu.length === 0) {
     if (!isModeAdmin) return <EmptyMenuClient />;
@@ -38,6 +47,7 @@ const Menu = () => {
             onDelete={() => handleDelete(id)}
             onClick={() => handleClick(id)}
             isHoverable={isModeAdmin}
+            isSelected={checkIfProductIsClicked(id, productSelected.id)}
           />
         );
       })}

@@ -18,3 +18,7 @@ export function replaceFrenchCommaWithDot(price) {
   if (typeof price === "string") price = parseFloat(price.replace(",", "."));
   return price;
 }
+
+export const checkIfProductIsClicked = (idProductInMenu, idProductClickedOn) => {
+  return idProductInMenu === idProductClickedOn;
+};
