@@ -51,7 +51,7 @@ Card.propTypes = {
 const CardStyled = styled.div`
   background: ${theme.colors.white};
   width: 240px;
-  height: 300px;
+  height: 330px;
   display: grid;
   grid-template-rows: 65% 1fr;
   box-sizing: border-box;
