@@ -2,7 +2,7 @@ import { theme } from "../../../theme/index.js";
 import styled from "styled-components";
 import NavBar from "./NavBar/NavBar.jsx";
 import Main from "./Main/Main.jsx";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import OrderContext from "../../../context/OrderContext.jsx";
 import { fakeMenu } from "../../../fakeData/fakeMenu.js";
 import { EMPTY_PRODUCT } from "../../enums/product.js";
@@ -10,14 +10,15 @@ import { deepClone } from "../../../utils/array.js";
 
 const OrderPage = () => {
   // State
-  const [isModeAdmin, setIsModeAdmin] = useState(true);
+  const [isModeAdmin, setIsModeAdmin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isAddSelected, setIsAddSelected] = useState(true);
   const [isEditSelected, setIsEditSelected] = useState(false);
-  const [currentTabSelected, setCurrentTabSelected] = useState("edit");
+  const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [productSelected, setProductSelected] = useState({ EMPTY_PRODUCT });
+  const titleEditRef = useRef();
 
   // Behaviors
   const handleAdd = (newProduct) => {
@@ -68,6 +69,7 @@ const OrderPage = () => {
     setNewProduct,
     productSelected,
     setProductSelected,
+    titleEditRef,
   };
 
   // Render
