@@ -19,9 +19,6 @@ export function replaceFrenchCommaWithDot(price) {
   return price;
 }
 
-export const EMPTY_PRODUCT = {
-  id: "",
-  title: "",
-  imageSource: "",
-  price: 0,
+export const checkIfProductIsClicked = (idProductInMenu, idProductClickedOn) => {
+  return idProductInMenu === idProductClickedOn;
 };

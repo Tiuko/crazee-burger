@@ -2,11 +2,11 @@ import { theme } from "../../../theme/index.js";
 import styled from "styled-components";
 import NavBar from "./NavBar/NavBar.jsx";
 import Main from "./Main/Main.jsx";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import OrderContext from "../../../context/OrderContext.jsx";
-import {fakeMenu} from '../../../fakeData/fakeMenu.js';
-import {EMPTY_PRODUCT} from '../../../utils/helpers.js';
-
+import { fakeMenu } from "../../../fakeData/fakeMenu.js";
+import { EMPTY_PRODUCT } from "../../enums/product.js";
+import { deepClone } from "../../../utils/array.js";
 
 const OrderPage = () => {
   // State
@@ -17,25 +17,37 @@ const OrderPage = () => {
   const [currentTabSelected, setCurrentTabSelected] = useState("add");
   const [menu, setMenu] = useState(fakeMenu.MEDIUM);
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
+  const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT );
+  const titleEditRef = useRef();
 
   // Behaviors
   const handleAdd = (newProduct) => {
-    const menuCopy = [...menu];
-    const menuUpdated = [newProduct,...menuCopy];
+    const menuCopy = deepClone(menu);
+    const menuUpdated = [newProduct, ...menuCopy];
     setMenu(menuUpdated);
-  }
+  };
 
   const handleDelete = (idOfProductToDelete) => {
-    const menuCopy = [...menu];
+    const menuCopy = deepClone(menu);
     const menuUpdated = menuCopy.filter(
-        (product) => product.id !== idOfProductToDelete,
+      (product) => product.id !== idOfProductToDelete,
     );
     setMenu(menuUpdated);
   };
 
+  const handleEdit = (productBeingEdited) => {
+    const menuCopy = deepClone(menu);
+    const indexOfProductToEdit = menu.findIndex(
+      (menuProduct) => menuProduct.id === productBeingEdited.id,
+    );
+    console.log("indexOfProductToEdit", indexOfProductToEdit);
+    menuCopy[indexOfProductToEdit] = productBeingEdited;
+    setMenu(menuCopy);
+  };
+
   const resetMenu = () => {
     setMenu(fakeMenu.MEDIUM);
-  }
+  };
 
   const orderContextValue = {
     isModeAdmin,
@@ -51,9 +63,13 @@ const OrderPage = () => {
     menu,
     handleAdd,
     handleDelete,
+    handleEdit,
     resetMenu,
     newProduct,
     setNewProduct,
+    productSelected,
+    setProductSelected,
+    titleEditRef,
   };
 
   // Render

@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import {createContext, createRef} from 'react';
 
 const OrderContext = createContext({
   isModeAdmin: false,
@@ -20,9 +20,15 @@ const OrderContext = createContext({
   handleAdd: () => {},
   handleDelete: () => {},
   resetMenu: () => {},
+  handleEdit: () => {},
 
-  newProduct: () => {},
+  newProduct: {},
   setNewProduct: () => {},
+
+  productSelected: {},
+  setProductSelected: () => {},
+
+  titleEditRef: createRef(),
 });
 
 export default OrderContext;
