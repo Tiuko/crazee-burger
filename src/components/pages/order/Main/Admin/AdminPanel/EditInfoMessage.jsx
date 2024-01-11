@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {theme} from '../../../../../../theme/index.js';
 
-const EditMessage = () => {
+const EditInfoMessage = () => {
   return (
     <EditMessageStyled>
       <span>
@@ -21,4 +21,4 @@ const EditMessageStyled = styled.span`
   }
 `;
 
-export default EditMessage;
+export default EditInfoMessage;
