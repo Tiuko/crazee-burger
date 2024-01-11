@@ -4,12 +4,12 @@ import OrderContext from "../../../../../../context/OrderContext.jsx";
 import ImagePreview from "./ImagePreview.jsx";
 import TextInput from "../../../../../reusable-ui/TextInput.jsx";
 import { getInputTextsConfig } from "./inputTextConfig.jsx";
+import {theme} from '../../../../../../theme/index.js';
 
 const EditForm = () => {
   const { productSelected, setProductSelected, handleEdit, titleEditRef } =
     useContext(OrderContext);
   const inputTexts = getInputTextsConfig(productSelected);
-
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -32,9 +32,15 @@ const EditForm = () => {
             key={input.id}
             onChange={handleChange}
             version="minimalist"
-            ref={input.name === "title" ? titleEditRef: null}
+            ref={input.name === "title" ? titleEditRef : null}
           />
         ))}
+      </div>
+      <div className="submit">
+        <span className="sentence">
+          Cliquer sur un produit du menu pour le modifier{" "}
+          <span className="live-update">en temps réel</span>
+        </span>
       </div>
     </EditFormStyled>
   );
@@ -62,8 +68,12 @@ const EditFormStyled = styled.form`
     align-items: center;
     top: 3px;
 
-    .submit-button {
-      height: 100%;
+    .sentence{
+      color: ${theme.colors.primary};
+      font-size: ${theme.fonts.size.SM};
+      .live-update{
+        text-decoration: underline;
+      }
     }
   }
 `;
