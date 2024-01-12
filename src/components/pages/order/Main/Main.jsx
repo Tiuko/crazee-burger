@@ -4,7 +4,7 @@ import Menu from "./Menu/Menu.jsx";
 import Admin from "./Admin/Admin.jsx";
 import OrderContext from "../../../../context/OrderContext.jsx";
 import { useContext } from "react";
-import Basket from './Basket.jsx';
+import Basket from './Basket/Basket.jsx';
 
 const Main = () => {
   const { isModeAdmin} = useContext(OrderContext);

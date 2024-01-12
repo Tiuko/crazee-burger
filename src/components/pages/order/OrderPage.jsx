@@ -99,6 +99,7 @@ const OrderPageStyled = styled.div`
     display: flex;
     flex-direction: column;
     border-radius: ${theme.borderRadius.extraRound};
+    overflow: hidden;
   }
 `;
 
