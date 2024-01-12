@@ -74,8 +74,8 @@ const Menu = () => {
 const MenuStyled = styled.div`
   background: ${theme.colors.white};
   display: grid;
-  //grid-template-columns: repeat(4, 1fr);
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
+  //grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-row-gap: 3.75rem;
   padding: 3.125rem 3.125rem 9.375rem;
   justify-items: center;
