@@ -143,3 +143,8 @@ Real-Time Updates: Modifying product information in the "edit a product" tab upd
 Resuming Edits: Exiting and re-entering admin mode allows for resuming modifications at the same state as before exiting.
 
 Site Name Change: Change the site name from the favicon.ico in the assets to "Crazee Burger | YOUR_NAME" (e.g., "Crazee Burger | Martin" for someone named Martin).
+
+### F10: Create the Empty Cart
+
+- Display the cart statically,
+- If no products are added to the cart, the cart should display the message "Your order is empty."
