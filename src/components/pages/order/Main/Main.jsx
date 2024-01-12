@@ -39,7 +39,7 @@ const MainStyled = styled.div`
     overflow-y: hidden;
     display: grid;
     border-bottom-right-radius: ${theme.borderRadius.extraRound};
-    border-bottom-left-radius: ${theme.borderRadius.extraRound};
+    // border-bottom-left-radius: ${theme.borderRadius.extraRound};
   }
 `;
 

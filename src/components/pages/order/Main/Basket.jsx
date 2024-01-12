@@ -28,6 +28,7 @@ const BasketStyled = styled.div`
   .footer {
     height: 70px;
     background: ${theme.colors.background_dark};
+      border-bottom-left-radius: ${theme.borderRadius.extraRound};
   }
 `;
 
