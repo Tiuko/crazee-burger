@@ -9,6 +9,7 @@ const Header = ({ children }) => {
 const HeaderStyled = styled.div`
   height: 70px;
   background: ${theme.colors.background_dark};
+  padding: 0 16px;
 `;
 
 Header.propTypes = {

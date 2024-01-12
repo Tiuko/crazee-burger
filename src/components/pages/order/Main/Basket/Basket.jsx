@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { theme } from "../../../../../theme/index.js";
-import Header from '../../../../reusable-ui/Header.jsx';
+import Header from "../../../../reusable-ui/Header.jsx";
+import Total from "./Total.jsx";
+import { formatPrice } from "../../../../../utils/helpers.js";
 
 const Basket = () => {
   return (
     <BasketStyled>
-      <Header>Head</Header>
+      <Total amountToPay={formatPrice(0)} />
       <div className="body">Body</div>
       <Header>Footer</Header>
     </BasketStyled>
@@ -15,7 +17,6 @@ const Basket = () => {
 const BasketStyled = styled.div`
   display: flex;
   flex-direction: column;
-  border-bottom-left-radius: ${theme.borderRadius.extraRound};
 
   .body {
     flex: 1;
