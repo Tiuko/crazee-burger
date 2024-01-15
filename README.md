@@ -148,3 +148,35 @@ Site Name Change: Change the site name from the favicon.ico in the assets to "Cr
 
 - Display the cart statically,
 - If no products are added to the cart, the cart should display the message "Your order is empty."
+
+### F11:  Create the Cart (Add and Remove in Real-Time)
+
+✅ Addition Business Rules
+
+- The user (admin or client) should be able to add one or several products to their cart by clicking on the "Add" button on the menu cards.
+
+- Products in the cart are displayed in the order they were added by the user from the menu cards (the most recent being at the top of the list).
+
+- The cart should display the list of added products, their quantity, and their unit price (in euros, rounded to 2 decimal places).
+
+- The total price of the cart must be automatically updated based on the added products.
+
+- If too many products are displayed in the cart, the product list in the cart becomes scrollable (scroll bar is visible only between the total and the footer).
+
+- If the product name is too long, an ellipsis appears.
+
+- If the product has no NAME and is added to the cart, a blank appears in the place of the name on the cart card.
+
+- If the product has no PRICE and is added to the cart, "0,00 €" is displayed on the cart card.
+
+- If the product has no IMAGE and is added to the cart, the "coming-soon.png" image is displayed on the cart card.
+
+✅ Deletion Business Rules
+
+- When hovering over products in the cart, I can delete a product from the cart by clicking on the product's "delete" button without its reference being removed from the menu.
+
+- The total price of the cart must be automatically updated based on the product's deletion.
+
+- When I delete a card from the CART, it is ONLY removed from the cart and the total is updated.
+
+- When I delete a card from the MENU, it is removed from both the menu AND the cart, and the total is updated.
