@@ -10,6 +10,7 @@ import OrderContext from "../../../../../context/OrderContext.jsx";
 import EmptyMenuAdmin from "./EmptyMenuAdmin.jsx";
 import EmptyMenuClient from "./EmptyMenuClient.jsx";
 import { EMPTY_PRODUCT, IMAGE_COMING_SOON } from "../../../../enums/product.js";
+import { find } from "../../../../../utils/array.js";
 
 const Menu = () => {
   const {
@@ -22,6 +23,8 @@ const Menu = () => {
     setIsCollapsed,
     setCurrentTabSelected,
     titleEditRef,
+    handleAddToBasket,
+    handleDeleteBasketProduct,
   } = useContext(OrderContext);
 
   useEffect(() => {
@@ -36,22 +39,30 @@ const Menu = () => {
   }
 
   const handleClick = async (idProductClicked) => {
-    if (!isModeAdmin) return;
-    await setIsCollapsed(false);
-    await setCurrentTabSelected("edit");
-    const productClickedOn = menu.find(
-      (product) => product.id === idProductClicked,
-    );
-    await setProductSelected(productClickedOn);
-    titleEditRef.current.focus();
-  };
+    if (!isModeAdmin) return
+
+    await setIsCollapsed(false)
+    await setCurrentTabSelected("edit")
+    //const productClickedOn = menu.find((product) => product.id === idProductClicked)
+    const productClickedOn = find(idProductClicked, menu)
+    await setProductSelected(productClickedOn)
+    titleEditRef.current.focus()
+  }
 
   const handleCardDelete = async (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete);
+    handleDeleteBasketProduct(idProductToDelete)
     if (idProductToDelete === productSelected.id) {
       await setProductSelected(EMPTY_PRODUCT);
     }
+  };
+
+  const handleAddButton = (event, idProductToAdd) => {
+    event.stopPropagation();
+    //const productToAdd = menu.find((menuProduct) => menuProduct.id === idProductToAdd)
+    const productToAdd = find(idProductToAdd, menu);
+    handleAddToBasket(productToAdd);
   };
 
   return (
@@ -68,6 +79,7 @@ const Menu = () => {
             onClick={() => handleClick(id)}
             isHoverable={isModeAdmin}
             isSelected={checkIfProductIsClicked(id, productSelected.id)}
+            onAdd={(event) => handleAddButton(event, id)}
           />
         );
       })}

@@ -13,6 +13,7 @@ const Card = ({
   onClick,
   isHoverable,
   isSelected,
+  onAdd,
 }) => {
   return (
     <CardStyled
@@ -42,7 +43,7 @@ const Card = ({
               <Button
                 className="primary-button"
                 label={"Ajouter"}
-                onClick={(event) => event.stopPropagation()}
+                onClick={onAdd}
               />
             </div>
           </div>
@@ -61,6 +62,7 @@ Card.propTypes = {
   onClick: PropTypes.func.isRequired,
   isHoverable: PropTypes.bool.isRequired,
   isSelected: PropTypes.bool.isRequired,
+  onAdd: PropTypes.func.isRequired,
 };
 
 const CardStyled = styled.div`

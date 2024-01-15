@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import { theme } from "../../../../../theme/index.js";
 import { formatPrice } from "../../../../../utils/helpers.js";
 import { MdDeleteForever } from "react-icons/md";
@@ -117,8 +117,7 @@ const BasketCardStyled = styled.div`
     z-index: 1;
   }
 
-  /* hover de la card */
-  :hover {
+    &:hover {
     .delete-button {
       border: none;
       box-sizing: border-box;
