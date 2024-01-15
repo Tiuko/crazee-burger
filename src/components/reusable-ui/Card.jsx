@@ -18,8 +18,8 @@ const Card = ({
     <CardStyled
       className="produit"
       onClick={onClick}
-      isHoverable={isHoverable}
-      isSelected={isSelected}
+      $isHoverable={isHoverable}
+      $isSelected={isSelected}
     >
       <div className="card">
         {hasDeleteButton && (
@@ -65,7 +65,7 @@ Card.propTypes = {
 
 const CardStyled = styled.div`
   .card {
-    ${({ isHoverable }) => isHoverable && hoverableStyle}
+    ${({ $isHoverable }) => $isHoverable && hoverableStyle}
     background: ${theme.colors.white};
     width: 240px;
     height: 330px;
@@ -166,8 +166,8 @@ const CardStyled = styled.div`
         }
       }
     }
-    ${({ isHoverable, isSelected }) =>
-      isHoverable && isSelected && selectedStyle}
+    ${({ $isHoverable, $isSelected }) =>
+      $isHoverable && $isSelected && selectedStyle}
   }
 `;
 

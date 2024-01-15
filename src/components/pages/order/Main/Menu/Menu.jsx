@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useContext } from "react";
+import {useContext, useEffect} from 'react';
 import { theme } from "../../../../../theme/index.js";
 import Card from "../../../../reusable-ui/Card.jsx";
 import {
@@ -26,6 +26,12 @@ const Menu = () => {
     titleEditRef,
   } = useContext(OrderContext);
 
+  useEffect(() => {
+    if (productSelected !== EMPTY_PRODUCT && titleEditRef.current) {
+      titleEditRef.current.focus();
+    }
+  }, [productSelected, titleEditRef]);
+
   if (menu.length === 0) {
     if (!isModeAdmin) return <EmptyMenuClient />;
     return <EmptyMenuAdmin onReset={resetMenu} />;
@@ -42,12 +48,12 @@ const Menu = () => {
     titleEditRef.current.focus();
   };
 
-  const handleCardDelete = (event, idProductToDelete) => {
+  const handleCardDelete = async (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete);
-    idProductToDelete === productSelected.id &&
-      setProductSelected(EMPTY_PRODUCT);
-    titleEditRef.current.focus();
+    if (idProductToDelete === productSelected.id) {
+      await setProductSelected(EMPTY_PRODUCT);
+    }
   };
 
   return (
