@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {theme} from '../../../../../theme/index.js';
 
-const BasketBody = () => {
+const EmptyBasket = () => {
   return (
     <BasketBodyStyled>
       <span className="empty-message">Votre commande est vide.</span>
@@ -29,4 +29,4 @@ const BasketBodyStyled = styled.div`
   }
 `;
 
-export default BasketBody;
+export default EmptyBasket;

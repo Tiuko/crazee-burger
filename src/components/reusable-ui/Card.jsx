@@ -13,13 +13,14 @@ const Card = ({
   onClick,
   isHoverable,
   isSelected,
+  onAdd,
 }) => {
   return (
     <CardStyled
       className="produit"
       onClick={onClick}
-      isHoverable={isHoverable}
-      isSelected={isSelected}
+      $isHoverable={isHoverable}
+      $isSelected={isSelected}
     >
       <div className="card">
         {hasDeleteButton && (
@@ -42,7 +43,7 @@ const Card = ({
               <Button
                 className="primary-button"
                 label={"Ajouter"}
-                onClick={(event) => event.stopPropagation()}
+                onClick={onAdd}
               />
             </div>
           </div>
@@ -61,11 +62,12 @@ Card.propTypes = {
   onClick: PropTypes.func.isRequired,
   isHoverable: PropTypes.bool.isRequired,
   isSelected: PropTypes.bool.isRequired,
+  onAdd: PropTypes.func.isRequired,
 };
 
 const CardStyled = styled.div`
   .card {
-    ${({ isHoverable }) => isHoverable && hoverableStyle}
+    ${({ $isHoverable }) => $isHoverable && hoverableStyle}
     background: ${theme.colors.white};
     width: 240px;
     height: 330px;
@@ -166,8 +168,8 @@ const CardStyled = styled.div`
         }
       }
     }
-    ${({ isHoverable, isSelected }) =>
-      isHoverable && isSelected && selectedStyle}
+    ${({ $isHoverable, $isSelected }) =>
+      $isHoverable && $isSelected && selectedStyle}
   }
 `;
 
