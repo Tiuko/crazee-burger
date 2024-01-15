@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {useContext, useEffect} from 'react';
+import { useContext, useEffect } from "react";
 import { theme } from "../../../../../theme/index.js";
 import Card from "../../../../reusable-ui/Card.jsx";
 import {
@@ -9,9 +9,7 @@ import {
 import OrderContext from "../../../../../context/OrderContext.jsx";
 import EmptyMenuAdmin from "./EmptyMenuAdmin.jsx";
 import EmptyMenuClient from "./EmptyMenuClient.jsx";
-import { EMPTY_PRODUCT } from "../../../../enums/product.js";
-
-const IMAGE_BY_DEFAULT = "/images/coming-soon.png";
+import { EMPTY_PRODUCT, IMAGE_COMING_SOON } from "../../../../enums/product.js";
 
 const Menu = () => {
   const {
@@ -63,7 +61,7 @@ const Menu = () => {
           <Card
             key={id}
             title={title}
-            imageSource={imageSource ? imageSource : IMAGE_BY_DEFAULT}
+            imageSource={imageSource ? imageSource : IMAGE_COMING_SOON}
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={(event) => handleCardDelete(event, id)}
