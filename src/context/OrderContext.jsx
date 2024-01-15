@@ -29,6 +29,7 @@ const OrderContext = createContext({
   setProductSelected: () => {},
 
   titleEditRef: createRef(),
+  basket: [],
 });
 
 export default OrderContext;
