@@ -10,7 +10,7 @@ import OrderContext from "../../../../../context/OrderContext.jsx";
 import EmptyMenuAdmin from "./EmptyMenuAdmin.jsx";
 import EmptyMenuClient from "./EmptyMenuClient.jsx";
 import { EMPTY_PRODUCT, IMAGE_COMING_SOON } from "../../../../enums/product.js";
-import {findObjectById, isEmpty} from '../../../../../utils/array.js';
+import { isEmpty } from "../../../../../utils/array.js";
 
 const Menu = () => {
   const {
@@ -18,35 +18,17 @@ const Menu = () => {
     isModeAdmin,
     handleDelete,
     resetMenu,
-    setProductSelected,
     productSelected,
-    setIsCollapsed,
-    setCurrentTabSelected,
-    titleEditRef,
+    setProductSelected,
     handleAddToBasket,
     handleDeleteBasketProduct,
+    handleProductSelected,
   } = useContext(OrderContext);
-
-  if (isEmpty(menu)) {
-    if (!isModeAdmin) return <EmptyMenuClient />;
-    return <EmptyMenuAdmin onReset={resetMenu} />;
-  }
-
-  const handleClick = async (idProductClicked) => {
-    if (!isModeAdmin) return
-
-    await setIsCollapsed(false)
-    await setCurrentTabSelected("edit")
-    //const productClickedOn = menu.find((product) => product.id === idProductClicked)
-    const productClickedOn = findObjectById(idProductClicked, menu)
-    await setProductSelected(productClickedOn)
-    titleEditRef.current.focus()
-  }
 
   const handleCardDelete = async (event, idProductToDelete) => {
     event.stopPropagation();
     handleDelete(idProductToDelete);
-    handleDeleteBasketProduct(idProductToDelete)
+    handleDeleteBasketProduct(idProductToDelete);
     if (idProductToDelete === productSelected.id) {
       await setProductSelected(EMPTY_PRODUCT);
     }
@@ -54,10 +36,13 @@ const Menu = () => {
 
   const handleAddButton = (event, idProductToAdd) => {
     event.stopPropagation();
-    //const productToAdd = menu.find((menuProduct) => menuProduct.id === idProductToAdd)
-    // const productToAdd = findObjectById(idProductToAdd, menu);
     handleAddToBasket(idProductToAdd);
   };
+
+  if (isEmpty(menu)) {
+    if (!isModeAdmin) return <EmptyMenuClient />;
+    return <EmptyMenuAdmin onReset={resetMenu} />;
+  }
 
   return (
     <MenuStyled className="menu">
@@ -70,7 +55,7 @@ const Menu = () => {
             leftDescription={formatPrice(price)}
             hasDeleteButton={isModeAdmin}
             onDelete={(event) => handleCardDelete(event, id)}
-            onClick={() => handleClick(id)}
+            onClick={isModeAdmin ? () => handleProductSelected(id) : null}
             isHoverable={isModeAdmin}
             isSelected={checkIfProductIsClicked(id, productSelected.id)}
             onAdd={(event) => handleAddButton(event, id)}

@@ -59,7 +59,7 @@ Card.propTypes = {
   leftDescription: PropTypes.string.isRequired,
   hasDeleteButton: PropTypes.bool.isRequired,
   onDelete: PropTypes.func.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   isHoverable: PropTypes.bool.isRequired,
   isSelected: PropTypes.bool.isRequired,
   onAdd: PropTypes.func.isRequired,
