@@ -61,8 +61,8 @@ const Menu = () => {
   const handleAddButton = (event, idProductToAdd) => {
     event.stopPropagation();
     //const productToAdd = menu.find((menuProduct) => menuProduct.id === idProductToAdd)
-    const productToAdd = findObjectById(idProductToAdd, menu);
-    handleAddToBasket(productToAdd);
+    // const productToAdd = findObjectById(idProductToAdd, menu);
+    handleAddToBasket(idProductToAdd);
   };
 
   return (
