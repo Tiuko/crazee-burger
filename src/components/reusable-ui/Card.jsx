@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import { theme } from "../../theme/index.js";
 import Button from "./Button.jsx";
 import { TiDelete } from "react-icons/ti";
+import PropTypes from "prop-types";
 
 const Card = ({
   title,
@@ -59,7 +59,7 @@ Card.propTypes = {
   leftDescription: PropTypes.string.isRequired,
   hasDeleteButton: PropTypes.bool.isRequired,
   onDelete: PropTypes.func.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   isHoverable: PropTypes.bool.isRequired,
   isSelected: PropTypes.bool.isRequired,
   onAdd: PropTypes.func.isRequired,
