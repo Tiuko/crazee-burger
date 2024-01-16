@@ -1,20 +1,26 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { theme } from "../../../../../theme/index.js";
-import { formatPrice } from "../../../../../utils/helpers.js";
 import { MdDeleteForever } from "react-icons/md";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
 const BasketCard = ({
   title,
-  price,
   quantity,
   imageSource,
   className,
   isClickable,
+  onClick,
   onDelete,
+  isSelected,
+  formattedPrice,
 }) => {
   return (
-    <BasketCardStyled className={className} $isClickable={isClickable}>
+    <BasketCardStyled
+      className={className}
+      $isClickable={isClickable}
+      onClick={onClick}
+      $isSelected={isSelected}
+    >
       <div className="delete-button" onClick={onDelete}>
         <MdDeleteForever className="icon" />
       </div>
@@ -26,7 +32,7 @@ const BasketCard = ({
           <div className="title">
             <span>{title}</span>
           </div>
-          <span className="price">{formatPrice(price)}</span>
+          <span className="price">{formattedPrice}</span>
         </div>
         <div className="quantity">
           <span>x {quantity}</span>
@@ -83,7 +89,6 @@ const BasketCardStyled = styled.div`
         line-height: 32px;
         font-weight: ${theme.fonts.weights.bold};
         color: ${theme.colors.dark};
-        /* sans cette div avec "min-width: 0", l'ellipsis ne fonctionne pas dans un span : https://semicolon.dev/tutorial/css/text-overflow-ellipsis-doesnt-work#:~:text=If%20your%20text%2Doverflow%20is,Grid%20or%20on%20a%20Table. */
         min-width: 0;
         span {
           overflow: hidden;
@@ -154,16 +159,29 @@ const BasketCardStyled = styled.div`
       }
     }
   }
+
+  ${({ $isClickable, $isSelected }) =>
+    $isClickable && $isSelected && selectedStyled}
+`;
+
+const selectedStyled = css`
+  background: ${theme.colors.primary};
+  .price,
+  .quantity {
+    color: ${theme.colors.white};
+  }
 `;
 
 BasketCard.propTypes = {
   title: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
   quantity: PropTypes.number.isRequired,
   imageSource: PropTypes.string.isRequired,
   className: PropTypes.string,
   isClickable: PropTypes.bool.isRequired,
   onDelete: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
+  isSelected: PropTypes.bool,
+  formattedPrice: PropTypes.string.isRequired,
 };
 
 export default BasketCard;

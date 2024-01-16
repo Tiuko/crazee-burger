@@ -1,5 +1,3 @@
-export const refreshPage = () => window.location.reload();
-
 export function formatPrice(priceToFormat) {
   let price = priceToFormat;
 

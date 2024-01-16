@@ -1,6 +1,6 @@
-import { useState } from "react"
-import { fakeBasket } from "../fakeData/fakeBasket"
-import { deepClone, findObjectById, findIndexById, removeObjectById } from "../utils/array"
+import { useState } from "react";
+import { fakeBasket } from "../fakeData/fakeBasket";
+import {deepClone, findIndexById, findObjectById, removeObjectById} from '../utils/array';
 
 export const useBasket = () => {
 	const [basket, setBasket] = useState(fakeBasket.EMPTY)

@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import { theme } from "../../theme/index.js";
 import Button from "./Button.jsx";
 import { TiDelete } from "react-icons/ti";
+import PropTypes from "prop-types";
 
 const Card = ({
   title,

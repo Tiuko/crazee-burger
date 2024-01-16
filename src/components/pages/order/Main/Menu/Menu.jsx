@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { theme } from "../../../../../theme/index.js";
 import Card from "../../../../reusable-ui/Card.jsx";
 import {
   checkIfProductIsClicked,
   formatPrice,
-} from "../../../../../utils/helpers.js";
+} from "../../../../../utils/maths.js";
 import OrderContext from "../../../../../context/OrderContext.jsx";
 import EmptyMenuAdmin from "./EmptyMenuAdmin.jsx";
 import EmptyMenuClient from "./EmptyMenuClient.jsx";
@@ -26,12 +26,6 @@ const Menu = () => {
     handleAddToBasket,
     handleDeleteBasketProduct,
   } = useContext(OrderContext);
-
-  useEffect(() => {
-    if (productSelected !== EMPTY_PRODUCT && titleEditRef.current) {
-      titleEditRef.current.focus();
-    }
-  }, [productSelected, titleEditRef]);
 
   if (isEmpty(menu)) {
     if (!isModeAdmin) return <EmptyMenuClient />;
