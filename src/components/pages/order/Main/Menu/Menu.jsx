@@ -10,7 +10,7 @@ import OrderContext from "../../../../../context/OrderContext.jsx";
 import EmptyMenuAdmin from "./EmptyMenuAdmin.jsx";
 import EmptyMenuClient from "./EmptyMenuClient.jsx";
 import { EMPTY_PRODUCT, IMAGE_COMING_SOON } from "../../../../enums/product.js";
-import { find } from "../../../../../utils/array.js";
+import {findObjectById, isEmpty} from '../../../../../utils/array.js';
 
 const Menu = () => {
   const {
@@ -33,7 +33,7 @@ const Menu = () => {
     }
   }, [productSelected, titleEditRef]);
 
-  if (menu.length === 0) {
+  if (isEmpty(menu)) {
     if (!isModeAdmin) return <EmptyMenuClient />;
     return <EmptyMenuAdmin onReset={resetMenu} />;
   }
@@ -44,7 +44,7 @@ const Menu = () => {
     await setIsCollapsed(false)
     await setCurrentTabSelected("edit")
     //const productClickedOn = menu.find((product) => product.id === idProductClicked)
-    const productClickedOn = find(idProductClicked, menu)
+    const productClickedOn = findObjectById(idProductClicked, menu)
     await setProductSelected(productClickedOn)
     titleEditRef.current.focus()
   }
@@ -61,7 +61,7 @@ const Menu = () => {
   const handleAddButton = (event, idProductToAdd) => {
     event.stopPropagation();
     //const productToAdd = menu.find((menuProduct) => menuProduct.id === idProductToAdd)
-    const productToAdd = find(idProductToAdd, menu);
+    const productToAdd = findObjectById(idProductToAdd, menu);
     handleAddToBasket(productToAdd);
   };
 
