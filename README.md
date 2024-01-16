@@ -180,3 +180,15 @@ Site Name Change: Change the site name from the favicon.ico in the assets to "Cr
 - When I delete a card from the CART, it is ONLY removed from the cart and the total is updated.
 
 - When I delete a card from the MENU, it is removed from both the menu AND the cart, and the total is updated.
+
+### F12 : Create the Admin Panel (real-time product modification)
+
+✅ Business rules for modification
+
+1. When I enter Admin mode, the basket cards become "clickable," and clicking on a card opens the admin panel on the "edit a product" tab, following the same business rules as in F09 (*).
+
+2. Any modification of a product from the form leads to a real-time update of the information in both the menu and the basket (if the product is present in the basket).
+
+3. If the user modifies the price of a product present in the basket, the total order amount is updated accordingly and in real time.
+
+4. If the price of a product is invalid, the price displayed on the menu and basket card is "NaN €," and the amount to be paid for this product is deducted from the total order amount.
