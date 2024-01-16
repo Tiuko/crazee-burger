@@ -20,7 +20,7 @@ const BasketProducts = ({ basket, isModeAdmin, handleDeleteBasketProduct }) => {
                 : IMAGE_COMING_SOON
             }
             onDelete={() => handleOnDelete(basketProduct.id)}
-            isModeAdmin={isModeAdmin}
+            isClickable={isModeAdmin}
           />
         </div>
       ))}

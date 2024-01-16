@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import { theme } from "../../../../../theme/index.js";
 import { formatPrice } from "../../../../../utils/helpers.js";
 import { MdDeleteForever } from "react-icons/md";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const BasketCard = ({
   title,
@@ -10,11 +10,11 @@ const BasketCard = ({
   quantity,
   imageSource,
   className,
-  isModeAdmin,
+  isClickable,
   onDelete,
 }) => {
   return (
-    <BasketCardStyled className={className} $isModeAdmin={isModeAdmin}>
+    <BasketCardStyled className={className} $isClickable={isClickable}>
       <div className="delete-button" onClick={onDelete}>
         <MdDeleteForever className="icon" />
       </div>
@@ -37,7 +37,7 @@ const BasketCard = ({
 };
 
 const BasketCardStyled = styled.div`
-  cursor: ${({ $isModeAdmin }) => ($isModeAdmin ? "pointer" : "auto")};
+  cursor: ${({ $isClickable }) => ($isClickable ? "pointer" : "auto")};
   box-sizing: border-box;
   height: 86px;
   padding: 8px 16px;
@@ -117,7 +117,7 @@ const BasketCardStyled = styled.div`
     z-index: 1;
   }
 
-    &:hover {
+  &:hover {
     .delete-button {
       border: none;
       box-sizing: border-box;
@@ -157,13 +157,13 @@ const BasketCardStyled = styled.div`
 `;
 
 BasketCard.propTypes = {
-    title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    quantity: PropTypes.number.isRequired,
-    imageSource: PropTypes.string.isRequired,
-    className: PropTypes.string,
-    isModeAdmin: PropTypes.bool.isRequired,
-    onDelete: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  quantity: PropTypes.number.isRequired,
+  imageSource: PropTypes.string.isRequired,
+  className: PropTypes.string,
+  isClickable: PropTypes.bool.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default BasketCard;
