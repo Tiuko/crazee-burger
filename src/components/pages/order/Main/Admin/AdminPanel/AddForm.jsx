@@ -4,6 +4,7 @@ import { EMPTY_PRODUCT } from "../../../../../enums/product.js";
 import Form from "./Form.jsx";
 import SubmitButton from "./SubmitButton.jsx";
 import { useSuccessMessage } from "../../../../../../hooks/useSuccessMessage.js";
+import {replaceFrenchCommaWithDot} from '../../../../../../utils/maths.js';
 
 const AddForm = () => {
   // States
@@ -17,6 +18,7 @@ const AddForm = () => {
     const newProductToAdd = {
       ...newProduct,
       id: crypto.randomUUID(),
+      price: replaceFrenchCommaWithDot(newProduct.price),
     };
 
     handleAdd(newProductToAdd);
