@@ -11,6 +11,7 @@ import EmptyMenuAdmin from "./EmptyMenuAdmin.jsx";
 import EmptyMenuClient from "./EmptyMenuClient.jsx";
 import { EMPTY_PRODUCT, IMAGE_COMING_SOON } from "../../../../enums/product.js";
 import { isEmpty } from "../../../../../utils/array.js";
+import Loader from './Loader.jsx';
 
 const Menu = () => {
   const {
@@ -39,6 +40,8 @@ const Menu = () => {
     event.stopPropagation();
     handleAddToBasket(idProductToAdd);
   };
+
+  if (!menu) return <Loader />
 
   if (isEmpty(menu)) {
     if (!isModeAdmin) return <EmptyMenuClient />;
