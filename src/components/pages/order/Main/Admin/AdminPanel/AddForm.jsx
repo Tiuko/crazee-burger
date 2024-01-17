@@ -8,7 +8,7 @@ import {replaceFrenchCommaWithDot} from '../../../../../../utils/maths.js';
 
 const AddForm = () => {
   // States
-  const { handleAdd, newProduct, setNewProduct } = useContext(OrderContext);
+  const { username, handleAdd, newProduct, setNewProduct } = useContext(OrderContext);
   const { isSubmitted, displaySuccessMessage } = useSuccessMessage();
 
   // Comportements
@@ -21,7 +21,7 @@ const AddForm = () => {
       price: replaceFrenchCommaWithDot(newProduct.price),
     };
 
-    handleAdd(newProductToAdd);
+    handleAdd(newProductToAdd, username);
     setNewProduct(EMPTY_PRODUCT);
 
     displaySuccessMessage();

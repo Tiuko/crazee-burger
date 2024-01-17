@@ -1,6 +1,7 @@
 import {createContext, createRef} from 'react';
 
 const OrderContext = createContext({
+  username: "",
   isModeAdmin: false,
   setIsModeAdmin: () => {},
 
