@@ -7,27 +7,26 @@ import { BsPersonCircle } from "react-icons/bs";
 import TextInput from "../../reusable-ui/TextInput.jsx";
 import Button from "../../reusable-ui/Button.jsx";
 import { authenticateUser } from "../../../api/user.js";
+import Welcome from "./Welcome.jsx";
 
 const LoginForm = () => {
-    const [username, setUsername] = useState("")
-    const navigate = useNavigate()
+  const [username, setUsername] = useState("");
+  const navigate = useNavigate();
 
-    const handleSubmit = async (event) => {
-        event.preventDefault()
-        authenticateUser(username)
-        setUsername("")
-        navigate(`order/${username}`)
-    }
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    authenticateUser(username);
+    setUsername("");
+    navigate(`order/${username}`);
+  };
 
-    const handleChange = (event) => {
-        setUsername(event.target.value)
-    }
+  const handleChange = (event) => {
+    setUsername(event.target.value);
+  };
 
   return (
     <LoginFormStyled action="submit" onSubmit={handleSubmit}>
-      <h1>Bienvenue chez nous !</h1>
-      <hr />
-      <h2>Connectez-vous</h2>
+      <Welcome />
       <div>
         <TextInput
           value={username}
