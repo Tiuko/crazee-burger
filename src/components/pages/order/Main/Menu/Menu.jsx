@@ -44,8 +44,8 @@ const Menu = () => {
   if (!menu) return <Loader />
 
   if (isEmpty(menu)) {
-    if (!isModeAdmin) return <EmptyMenuClient />;
-    return <EmptyMenuAdmin onReset={resetMenu} />;
+    if (!isModeAdmin) return <EmptyMenuClient />
+    return <EmptyMenuAdmin onReset={() => resetMenu(username)} />
   }
 
   return (
