@@ -14,6 +14,7 @@ import { isEmpty } from "../../../../../utils/array.js";
 
 const Menu = () => {
   const {
+    username,
     menu,
     isModeAdmin,
     handleDelete,
@@ -27,7 +28,7 @@ const Menu = () => {
 
   const handleCardDelete = async (event, idProductToDelete) => {
     event.stopPropagation();
-    handleDelete(idProductToDelete);
+    handleDelete(idProductToDelete, username);
     handleDeleteBasketProduct(idProductToDelete);
     if (idProductToDelete === productSelected.id) {
       await setProductSelected(EMPTY_PRODUCT);
