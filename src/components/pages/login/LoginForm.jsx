@@ -6,24 +6,23 @@ import { IoChevronForward } from "react-icons/io5";
 import { BsPersonCircle } from "react-icons/bs";
 import TextInput from "../../reusable-ui/TextInput.jsx";
 import Button from "../../reusable-ui/Button.jsx";
+import { authenticateUser } from "../../../api/user.js";
 
 const LoginForm = () => {
-  // State
-  const [inputValue, setInputValue] = useState("Peter");
-  const navigate = useNavigate();
+    const [username, setUsername] = useState("")
+    const navigate = useNavigate()
 
-  // Behaviors
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setInputValue("");
-    navigate(`order/${inputValue}`);
-  };
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        authenticateUser(username)
+        setUsername("")
+        navigate(`order/${username}`)
+    }
 
-  const handleChange = (event) => {
-    setInputValue(event.target.value);
-  };
+    const handleChange = (event) => {
+        setUsername(event.target.value)
+    }
 
-  // Render
   return (
     <LoginFormStyled action="submit" onSubmit={handleSubmit}>
       <h1>Bienvenue chez nous !</h1>
@@ -31,7 +30,7 @@ const LoginForm = () => {
       <h2>Connectez-vous</h2>
       <div>
         <TextInput
-          value={inputValue}
+          value={username}
           onChange={handleChange}
           placeholder={"Entrer votre prénom.."}
           required
@@ -39,10 +38,7 @@ const LoginForm = () => {
           className="input-login"
           version="normal"
         />
-        <Button
-          label={"Accéder à votre espace"}
-          Icon={<IoChevronForward />}
-        />
+        <Button label={"Accéder à votre espace"} Icon={<IoChevronForward />} />
       </div>
     </LoginFormStyled>
   );
@@ -72,10 +68,10 @@ const LoginFormStyled = styled.form`
     font-size: ${theme.fonts.size.P4};
     margin: 20px 10px 10px;
   }
-    
-    .input-login {
-        margin: 18px 0
-    }
+
+  .input-login {
+    margin: 18px 0;
+  }
 `;
 
 export default LoginForm;

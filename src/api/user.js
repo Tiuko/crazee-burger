@@ -11,11 +11,19 @@ export const getUser = async (idUser) => {
   }
 };
 
-export const createUser = async (userId) => {
+export const createUser = (userId) => {
   const docRef = doc(db, "users", userId);
   const nourriture = {
     username: userId,
-    menu: fakeMenu.LARGE,
+    menu: fakeMenu.SMALL,
   };
-  await setDoc(docRef, nourriture);
+  setDoc(docRef, nourriture);
 };
+
+export const authenticateUser = async (userId) => {
+  const existingUser = await getUser(userId);
+
+  if (!existingUser) {
+    createUser(userId);
+  }
+}
