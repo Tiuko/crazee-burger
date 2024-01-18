@@ -38,7 +38,7 @@ const Menu = () => {
 
   const handleAddButton = (event, idProductToAdd) => {
     event.stopPropagation();
-    handleAddToBasket(idProductToAdd);
+    handleAddToBasket(idProductToAdd, username);
   };
 
   if (!menu) return <Loader />
