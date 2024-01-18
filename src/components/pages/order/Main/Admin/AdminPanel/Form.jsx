@@ -6,7 +6,7 @@ import TextInput from '../../../../../reusable-ui/TextInput.jsx';
 import PropTypes from 'prop-types';
 
 const Form = React.forwardRef(
-  ({ product, onSubmit, onChange, children }, ref) => {
+  ({ product, onSubmit, onChange, onFocus, onBlur, children }, ref) => {
     const inputTexts = getInputTextsConfig(product);
     return (
       <FormStyled onSubmit={onSubmit}>
@@ -18,6 +18,8 @@ const Form = React.forwardRef(
               key={input.id}
               onChange={onChange}
               version="minimalist"
+              onFocus={onFocus}
+              onBlur={onBlur}
               ref={ref && input.name === "title" ? ref : null}
             />
           ))}
@@ -36,6 +38,9 @@ Form.propTypes = {
     onChange: PropTypes.func,
     children: PropTypes.node,
     imageSource: PropTypes.string,
+    title: PropTypes.string,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
 }
 
 export default Form;
