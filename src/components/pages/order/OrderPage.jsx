@@ -4,7 +4,7 @@ import { theme } from "../../../theme/index.js";
 import Main from "./Main/Main.jsx";
 import NavBar from "./NavBar/NavBar.jsx";
 import OrderContext from "../../../context/OrderContext.jsx";
-import { EMPTY_PRODUCT } from "../../enums/product.js";
+import { EMPTY_PRODUCT } from "../../../enums/product.js";
 import {useMenu} from '../../../hooks/useMenu.js';
 import {useBasket} from '../../../hooks/useBasket.js';
 import {findObjectById} from '../../../utils/array.js';
@@ -15,12 +15,12 @@ const OrderPage = () => {
   // State
   const [isModeAdmin, setIsModeAdmin] = useState(true);
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isAddSelected, setIsAddSelected] = useState(true);
-  const [isEditSelected, setIsEditSelected] = useState(false);
   const [currentTabSelected, setCurrentTabSelected] = useState("edit");
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT );
   const titleEditRef = useRef();
+  const [isAddSelected, setIsAddSelected] = useState(true);
+  const [isEditSelected, setIsEditSelected] = useState(false);
   const { menu, setMenu, handleAdd, handleDelete, handleEdit, resetMenu } = useMenu()
   const { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct } = useBasket()
   const { username } = useParams()

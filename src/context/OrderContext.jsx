@@ -14,7 +14,7 @@ const OrderContext = createContext({
   isEditSelected: false,
   setIsEditSelected: () => {},
 
-  currentTabSelected: "add",
+  currentTabSelected: false,
   setCurrentTabSelected: () => {},
 
   menu: [],
@@ -28,13 +28,13 @@ const OrderContext = createContext({
 
   productSelected: {},
   setProductSelected: () => {},
+  handleProductSelected: () => {},
 
   titleEditRef: createRef(),
 
   basket: [],
   handleAddToBasket: () => {},
   handleDeleteBasketProduct: () => {},
-  handleProductSelected: () => {},
 });
 
 export default OrderContext;
