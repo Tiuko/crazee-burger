@@ -17,6 +17,3 @@ export function replaceFrenchCommaWithDot(price) {
   return price;
 }
 
-export const checkIfProductIsClicked = (idProductInMenu, idProductClickedOn) => {
-  return idProductInMenu === idProductClickedOn;
-};
