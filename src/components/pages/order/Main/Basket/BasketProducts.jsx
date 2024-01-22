@@ -9,6 +9,7 @@ import {formatPrice} from '../../../../../utils/maths.js';
 
 const BasketProducts = () => {
     const {
+        username,
         basket,
         isModeAdmin,
         handleDeleteBasketProduct,
@@ -19,7 +20,7 @@ const BasketProducts = () => {
 
   const handleOnDelete = (event, id) => {
     event.stopPropagation();
-    handleDeleteBasketProduct(id);
+    handleDeleteBasketProduct(id, username);
   };
 
   return (
