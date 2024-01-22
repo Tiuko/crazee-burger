@@ -1,13 +1,15 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { IMAGE_COMING_SOON } from "../../../../enums/product.js";
+import { IMAGE_COMING_SOON } from "../../../../../enums/product.js";
 import BasketCard from "./BasketCard.jsx";
 import OrderContext from "../../../../../context/OrderContext.jsx";
 import { findObjectById } from "../../../../../utils/array.js";
-import {checkIfProductIsClicked, formatPrice} from '../../../../../utils/maths.js';
+import {checkIfProductIsClicked} from '../Menu/helper.js';
+import {formatPrice} from '../../../../../utils/maths.js';
 
 const BasketProducts = () => {
     const {
+        username,
         basket,
         isModeAdmin,
         handleDeleteBasketProduct,
@@ -18,7 +20,7 @@ const BasketProducts = () => {
 
   const handleOnDelete = (event, id) => {
     event.stopPropagation();
-    handleDeleteBasketProduct(id);
+    handleDeleteBasketProduct(id, username);
   };
 
   return (

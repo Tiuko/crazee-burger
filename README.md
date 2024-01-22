@@ -192,3 +192,32 @@ Site Name Change: Change the site name from the favicon.ico in the assets to "Cr
 3. If the user modifies the price of a product present in the basket, the total order amount is updated accordingly and in real time.
 
 4. If the price of a product is invalid, the price displayed on the menu and basket card is "NaN €," and the amount to be paid for this product is deducted from the total order amount.
+
+### F13: Data persistence 
+
+✅ Business Rules on USER Persistence
+
+- If a user already exists in the database, their data (name and associated menu) are retrieved from the Firestore DB to be displayed on the OrderPage.
+- If a user is new to the database, they are created with a new default product catalog initialized to fakeMenu (see assets).
+- Each user has THEIR own menu, distinct from other users' menus. Changes to user A's menu do not affect user
+
+#### B's menu.
+
+- When I log in with a username (e.g., Jean), enter admin mode, and modify my menu, if I refresh the page, the menu retains my changes specifically for Jean (and not for another user).
+- Upon refreshing the page, the user automatically exits admin mode.
+
+✅ Business Rules on MENU Persistence
+
+- The data (and data changes) of each user's menu (username and menu) will be recorded in the Firestore DB.
+- During the loading phase of the menu data, a loading message appears in the MENU (see mockup).
+- When a user adds or deletes a product from their menu, the changes are recorded in the Firestore database.
+- When a user fills out the form to modify a product in real-time, the database recording of the product changes must occur "on the fly," meaning with each character change.
+- When a user fills out the form to modify a product in real-time, if the user removes focus from an input box of the modification form and the value of the considered field is actually modified, the message "Modifications saved" appears (see mockup).
+- In admin mode, if I delete all the products from my menu until it's empty, when I refresh the page, my menu should still be empty.
+- In admin mode, if my menu is empty, I should be able to reset my data set by clicking on "Generate new products," refresh the page, and see the same data set displayed.
+
+✅ Business Rules on BASKET Persistence
+
+- The data (and data changes) of the basket will be recorded in the browser's local storage.
+- During the loading phase of the menu data from local storage, a loading message appears in the BASKET (see mockup).
+- When a user adds, modifies, or deletes a product from their basket, the changes are recorded in local storage.

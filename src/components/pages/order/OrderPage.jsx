@@ -1,26 +1,29 @@
-import { useState, useRef } from "react";
+import {useState, useRef, useEffect} from 'react';
 import styled from "styled-components";
 import { theme } from "../../../theme/index.js";
 import Main from "./Main/Main.jsx";
 import NavBar from "./NavBar/NavBar.jsx";
 import OrderContext from "../../../context/OrderContext.jsx";
-import { EMPTY_PRODUCT } from "../../enums/product.js";
+import { EMPTY_PRODUCT } from "../../../enums/product.js";
 import {useMenu} from '../../../hooks/useMenu.js';
 import {useBasket} from '../../../hooks/useBasket.js';
 import {findObjectById} from '../../../utils/array.js';
+import {useParams} from 'react-router-dom';
+import {initialiseUserSession} from './helpers/initialiseUserSession.js';
 
 const OrderPage = () => {
   // State
-  const [isModeAdmin, setIsModeAdmin] = useState(false);
+  const [isModeAdmin, setIsModeAdmin] = useState(true);
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isAddSelected, setIsAddSelected] = useState(true);
-  const [isEditSelected, setIsEditSelected] = useState(false);
-  const [currentTabSelected, setCurrentTabSelected] = useState("add");
+  const [currentTabSelected, setCurrentTabSelected] = useState("edit");
   const [newProduct, setNewProduct] = useState(EMPTY_PRODUCT);
   const [productSelected, setProductSelected] = useState(EMPTY_PRODUCT );
   const titleEditRef = useRef();
-  const { menu, handleAdd, handleDelete, handleEdit, resetMenu } = useMenu()
-  const { basket, handleAddToBasket, handleDeleteBasketProduct } = useBasket()
+  const [isAddSelected, setIsAddSelected] = useState(true);
+  const [isEditSelected, setIsEditSelected] = useState(false);
+  const { menu, setMenu, handleAdd, handleDelete, handleEdit, resetMenu } = useMenu()
+  const { basket, setBasket, handleAddToBasket, handleDeleteBasketProduct } = useBasket()
+  const { username } = useParams()
 
   const handleProductSelected = async (idProductClicked) => {
     const productClickedOn = findObjectById(idProductClicked, menu)
@@ -30,7 +33,12 @@ const OrderPage = () => {
     titleEditRef.current.focus()
   }
 
+  useEffect(() => {
+    initialiseUserSession(username, setMenu, setBasket)
+  }, [username, setMenu, setBasket])
+
   const orderContextValue = {
+    username,
     isModeAdmin,
     setIsModeAdmin,
     isCollapsed,

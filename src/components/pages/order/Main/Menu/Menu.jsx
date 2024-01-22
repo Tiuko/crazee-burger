@@ -1,19 +1,22 @@
-import styled from "styled-components";
 import { useContext } from "react";
-import { theme } from "../../../../../theme/index.js";
-import Card from "../../../../reusable-ui/Card.jsx";
-import {
-  checkIfProductIsClicked,
-  formatPrice,
-} from "../../../../../utils/maths.js";
+import styled from "styled-components";
 import OrderContext from "../../../../../context/OrderContext.jsx";
+import { theme } from "../../../../../theme/index.js";
+import { formatPrice } from "../../../../../utils/maths.js";
+import Card from "../../../../reusable-ui/Card.jsx";
 import EmptyMenuAdmin from "./EmptyMenuAdmin.jsx";
 import EmptyMenuClient from "./EmptyMenuClient.jsx";
-import { EMPTY_PRODUCT, IMAGE_COMING_SOON } from "../../../../enums/product.js";
+import { checkIfProductIsClicked } from "./helper.js";
+import {
+  EMPTY_PRODUCT,
+  IMAGE_COMING_SOON,
+} from "../../../../../enums/product.js";
 import { isEmpty } from "../../../../../utils/array.js";
+import Loader from "./Loader.jsx";
 
 const Menu = () => {
   const {
+    username,
     menu,
     isModeAdmin,
     handleDelete,
@@ -27,21 +30,21 @@ const Menu = () => {
 
   const handleCardDelete = async (event, idProductToDelete) => {
     event.stopPropagation();
-    handleDelete(idProductToDelete);
-    handleDeleteBasketProduct(idProductToDelete);
-    if (idProductToDelete === productSelected.id) {
-      await setProductSelected(EMPTY_PRODUCT);
-    }
+    handleDelete(idProductToDelete, username);
+    handleDeleteBasketProduct(idProductToDelete, username);
+    idProductToDelete === productSelected.id && setProductSelected(EMPTY_PRODUCT)
   };
 
   const handleAddButton = (event, idProductToAdd) => {
     event.stopPropagation();
-    handleAddToBasket(idProductToAdd);
+    handleAddToBasket(idProductToAdd, username);
   };
+
+  if (menu === undefined) return <Loader />
 
   if (isEmpty(menu)) {
     if (!isModeAdmin) return <EmptyMenuClient />;
-    return <EmptyMenuAdmin onReset={resetMenu} />;
+    return <EmptyMenuAdmin onReset={() => resetMenu(username)} />;
   }
 
   return (
