@@ -1,5 +1,6 @@
 import { css, keyframes } from "styled-components"
-import { theme } from "."
+import {theme} from './index.js';
+
 
 export const fadeInFromRight = keyframes`
   0% {
@@ -26,18 +27,6 @@ export const fadeInFromBottom = keyframes`
     opacity: 1;
   }
 
-`
-
-export const adminAnimation = css`
-  .admin-appear {
-    opacity: 0.1;
-    transform: translateY(100%);
-    &.admin-appear-active {
-      opacity: 1;
-      transform: translateY(0);
-      transition: all 500ms;
-    }
-  }
 `
 
 export const basketAnimation = css`
