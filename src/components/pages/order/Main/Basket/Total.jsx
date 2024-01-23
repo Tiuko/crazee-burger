@@ -4,7 +4,8 @@ import OrderContext from "../../../../../context/OrderContext.jsx";
 import { theme } from "../../../../../theme/index.js";
 import { formatPrice } from "../../../../../utils/maths.js";
 import Header from "../../../../reusable-ui/Header.jsx";
-import {calculateSumToPay} from './helper.js';
+import { calculateSumToPay } from "./helper.js";
+import CasinoEffect from "../../../../reusable-ui/CasinoEffect.jsx";
 
 const Total = () => {
   const { basket, menu } = useContext(OrderContext);
@@ -15,7 +16,8 @@ const Total = () => {
     <Header>
       <TotalStyled>
         <span className="total">Total</span>
-        <span className="amount">{formatPrice(sumToPay)}</span>
+        <CasinoEffect count={formatPrice(sumToPay)}/>
+        {/*<span className="amount">{formatPrice(sumToPay)}</span>*/}
       </TotalStyled>
     </Header>
   );
