@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import TextInput from '../../../../../reusable-ui/TextInput.jsx';
-import ImagePreview from "./ImagePreview";
-import { getInputTextsConfig } from "./inputTextConfig";
+import TextInput from '../../../../../../reusable-ui/TextInput.jsx';
+import ImagePreview from "./ImagePreview.jsx";
+import { getInputTextsConfig } from "./inputTextConfig.jsx";
 import PropTypes from 'prop-types';
 
 const Form = React.forwardRef(

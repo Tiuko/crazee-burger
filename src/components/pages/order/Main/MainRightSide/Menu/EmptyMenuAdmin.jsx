@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { theme } from "../../../../../theme/index.js";
+import { theme } from "../../../../../../theme/index.js";
 import PropTypes from 'prop-types';
-import Button from '../../../../reusable-ui/Button.jsx';
+import Button from '../../../../../reusable-ui/Button.jsx';
 
 const EmptyMenuAdmin = ({ onReset }) => {
   return (

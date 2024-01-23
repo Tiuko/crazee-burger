@@ -2,7 +2,7 @@ import styled from "styled-components";
 import AdminPanel from "./AdminPanel/AdminPanel.jsx";
 import AdminTabs from "./AdminTabs.jsx";
 import { useContext } from "react";
-import OrderContext from "../../../../../context/OrderContext.jsx";
+import OrderContext from "../../../../../../context/OrderContext.jsx";
 
 const Admin = () => {
   const { isCollapsed } = useContext(OrderContext);

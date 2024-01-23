@@ -1,18 +1,20 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import OrderContext from "../../../../../context/OrderContext.jsx";
-import { theme } from "../../../../../theme/index.js";
-import { formatPrice } from "../../../../../utils/maths.js";
-import Card from "../../../../reusable-ui/Card.jsx";
+import OrderContext from "../../../../../../context/OrderContext.jsx";
+import { theme } from "../../../../../../theme/index.js";
+import { formatPrice } from "../../../../../../utils/maths.js";
+import Card from "../../../../../reusable-ui/Card.jsx";
 import EmptyMenuAdmin from "./EmptyMenuAdmin.jsx";
 import EmptyMenuClient from "./EmptyMenuClient.jsx";
 import { checkIfProductIsClicked } from "./helper.js";
 import {
   EMPTY_PRODUCT,
   IMAGE_COMING_SOON,
-} from "../../../../../enums/product.js";
-import { isEmpty } from "../../../../../utils/array.js";
+} from "../../../../../../enums/product.js";
+import { isEmpty } from "../../../../../../utils/array.js";
 import Loader from "./Loader.jsx";
+import {TransitionGroup, CSSTransition} from 'react-transition-group';
+import {menuAnimation} from '../../../../../../theme/animation.js';
 
 const Menu = () => {
   const {
@@ -48,24 +50,25 @@ const Menu = () => {
   }
 
   return (
-    <MenuStyled className="menu">
-      {menu.map(({ id, title, imageSource, price }) => {
-        return (
-          <Card
-            key={id}
-            title={title}
-            imageSource={imageSource ? imageSource : IMAGE_COMING_SOON}
-            leftDescription={formatPrice(price)}
-            hasDeleteButton={isModeAdmin}
-            onDelete={(event) => handleCardDelete(event, id)}
-            onClick={isModeAdmin ? () => handleProductSelected(id) : null}
-            isHoverable={isModeAdmin}
-            isSelected={checkIfProductIsClicked(id, productSelected.id)}
-            onAdd={(event) => handleAddButton(event, id)}
-          />
-        );
-      })}
-    </MenuStyled>
+      <TransitionGroup component={MenuStyled} className="menu">
+        {menu.map(({ id, title, imageSource, price }) => {
+          return (
+              <CSSTransition classNames={"menu-animation"} key={id} timeout={300}>
+                <Card
+                    title={title}
+                    imageSource={imageSource ? imageSource : IMAGE_COMING_SOON}
+                    leftDescription={formatPrice(price)}
+                    hasDeleteButton={isModeAdmin}
+                    onDelete={(event) => handleCardDelete(event, id)}
+                    onClick={isModeAdmin ? () => handleProductSelected(id) : null}
+                    isHoverable={isModeAdmin}
+                    isSelected={checkIfProductIsClicked(id, productSelected.id)}
+                    onAdd={(event) => handleAddButton(event, id)}
+                />
+              </CSSTransition>
+          )
+        })}
+      </TransitionGroup>
   );
 };
 
@@ -79,6 +82,8 @@ const MenuStyled = styled.div`
   justify-items: center;
   box-shadow: 0 8px 20px 8px rgba(0, 0, 0, 0.2) inset;
   overflow-y: scroll;
+
+  ${menuAnimation}
 `;
 
 export default Menu;

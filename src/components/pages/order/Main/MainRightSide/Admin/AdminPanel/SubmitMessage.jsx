@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { FiCheck } from "react-icons/fi";
-import { theme } from "../../../../../../theme/index.js";
+import { theme } from "../../../../../../../theme/index.js";
 
 const SubmitMessage = () => {
   return (
