@@ -3,6 +3,7 @@ import { theme } from "../../theme/index.js";
 import Button from "./Button.jsx";
 import { TiDelete } from "react-icons/ti";
 import PropTypes from "prop-types";
+import {fadeInFromRight} from '../../theme/animation.js';
 
 const Card = ({
   title,
@@ -91,6 +92,7 @@ const CardStyled = styled.div`
       padding: 0;
       border: none;
       background: none;
+      animation: ${fadeInFromRight} ${theme.animations.speed.slow} ease-out;
 
       .icon {
         height: 100%;
