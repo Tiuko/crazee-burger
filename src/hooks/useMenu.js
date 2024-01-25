@@ -47,7 +47,7 @@ export const useMenu = () => {
 	}
 
 	const resetMenu = (username) => {
-		setMenu(fakeMenu.SMALL)
+		setMenu(fakeMenu.LARGE)
 		syncBothMenus(username, fakeMenu.SMALL)
 	}
 

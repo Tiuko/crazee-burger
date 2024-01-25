@@ -221,3 +221,24 @@ Site Name Change: Change the site name from the favicon.ico in the assets to "Cr
 - The data (and data changes) of the basket will be recorded in the browser's local storage.
 - During the loading phase of the menu data from local storage, a loading message appears in the BASKET (see mockup).
 - When a user adds, modifies, or deletes a product from their basket, the changes are recorded in local storage.
+
+### F14 : Add animations
+
+⌛️ Story Point: 2
+
+✅ Business Rules for the ADMIN PANEL
+
+- Add animation to the opening/closing of the admin panel.
+- Add animation to the appearance of the product image for the add and edit forms (product preview).
+
+✅ Business Rules for the MENU
+
+- Add animation to adding a card/product.
+- Add animation to removing a card/product.
+
+✅ Business Rules for the BASKET
+
+- Add animation to adding a card/product.
+- Add animation to removing a card/product.
+- Add a "casino" animation to the basket total updating.
+- Add a "casino" animation to updating the quantity of a product.
