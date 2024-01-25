@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {theme} from '../../../../../theme/index.js';
 import Header from '../../../../reusable-ui/Header.jsx';
 
-const Footer = () => {
+const BasketFooter = () => {
  return (
      <Header>
          <FooterStyled>
@@ -26,4 +26,4 @@ const FooterStyled = styled.div`
     }
 `;
 
-export default Footer;
+export default BasketFooter;
