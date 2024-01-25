@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { theme } from "../../../../../../theme/index.js";
 import { MdDeleteForever } from "react-icons/md";
 import PropTypes from 'prop-types';
+import CasinoEffect from '../../../../../reusable-ui/CasinoEffect.jsx';
 
 const BasketCard = ({
   title,
@@ -35,7 +36,7 @@ const BasketCard = ({
           <span className="price">{formattedPrice}</span>
         </div>
         <div className="quantity">
-          <span>x {quantity}</span>
+          <CasinoEffect count={`x ${quantity}`} />
         </div>
       </div>
     </BasketCardStyled>
