@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import { IMAGE_COMING_SOON } from "../../../../../../enums/product.js";
-import BasketCard from "../BasketCard.jsx";
+import BasketCard from "./BasketCard.jsx";
 import OrderContext from "../../../../../../context/OrderContext.jsx";
 import { findObjectById } from "../../../../../../utils/array.js";
 import { checkIfProductIsClicked } from "../../MainRightSide/Menu/helper.js";

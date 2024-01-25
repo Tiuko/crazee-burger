@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import OrderContext from "../../../../../context/OrderContext.jsx";
-import { theme } from "../../../../../theme/index.js";
-import { formatPrice } from "../../../../../utils/maths.js";
-import Header from "../../../../reusable-ui/Header.jsx";
+import OrderContext from "../../../../../../context/OrderContext.jsx";
+import { theme } from "../../../../../../theme/index.js";
+import { formatPrice } from "../../../../../../utils/maths.js";
+import Header from "../../../../../reusable-ui/Header.jsx";
 import { calculateSumToPay } from "./helper.js";
-import CasinoEffect from "../../../../reusable-ui/CasinoEffect.jsx";
+import CasinoEffect from "../../../../../reusable-ui/CasinoEffect.jsx";
 
-const Total = () => {
+const BasketHeader = () => {
   const { basket, menu } = useContext(OrderContext);
 
   const sumToPay = calculateSumToPay(basket, menu);
@@ -35,4 +35,4 @@ const TotalStyled = styled.div`
   letter-spacing: 2px;
 `;
 
-export default Total;
+export default BasketHeader;

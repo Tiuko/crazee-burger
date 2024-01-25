@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Total from "./Total.jsx";
+import BasketHeader from "./BasketHeader/BasketHeader.jsx";
 import BasketFooter from "./BasketFooter.jsx";
 import { theme } from "../../../../../theme/index.js";
 import BasketBody from "./BasketBody/BasketBody.jsx";
@@ -7,7 +7,7 @@ import BasketBody from "./BasketBody/BasketBody.jsx";
 const Basket = () => {
   return (
     <BasketStyled>
-      <Total />
+      <BasketHeader />
       <BasketBody />
       <BasketFooter />
     </BasketStyled>
