@@ -88,10 +88,12 @@ const BasketProductsStyled = styled.div`
   flex-direction: column;
   overflow-y: scroll;
 
+
   .card-container {
     margin: 10px 16px;
     height: 86px;
     box-sizing: border-box;
+    position: relative;
     //:first-child {
     //  margin-top: 10px;
     //}
