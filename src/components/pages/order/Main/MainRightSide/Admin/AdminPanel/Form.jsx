@@ -4,6 +4,17 @@ import TextInput from "../../../../../../reusable-ui/TextInput.jsx";
 import ImagePreview from "./ImagePreview.jsx";
 import { getInputTextsConfig } from "./inputTextConfig.jsx";
 import PropTypes from "prop-types";
+import SelectInput from "../../../../../../reusable-ui/SelectInput.jsx";
+
+const isAvailableOptions = [
+  { value: true, label: "En stock" },
+  { value: false, label: "En rutpure" },
+];
+
+const isPublicisedOptions = [
+  { value: true, label: "Avec pub" },
+  { value: false, label: "Sans pub" },
+];
 
 const Form = React.forwardRef(
   ({ product, onSubmit, onChange, onFocus, onBlur, children }, ref) => {
@@ -23,14 +34,16 @@ const Form = React.forwardRef(
               ref={ref && input.name === "title" ? ref : null}
             />
           ))}
-          <select name="isAvailable" className="is-available" id="3">
-            <option value={true}>En stock</option>
-            <option value={false}>En rupture</option>
-          </select>
-          <select name="isPublicised" className="is-publicised" id="4">
-            <option value={true}>Sans pub</option>
-            <option value={false}>Avec pub</option>
-          </select>
+          <SelectInput
+            options={isAvailableOptions}
+            className="is-available"
+            id="3"
+          />
+          <SelectInput
+            options={isPublicisedOptions}
+            className="is-publicised"
+            id="4"
+          />
         </div>
         <div className="form-footer">{children}</div>
       </FormStyled>
