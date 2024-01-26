@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { theme } from "../../../../../../../theme/index.js";
+import { theme } from "../../../../../../../../theme/index.js";
 import PropTypes from "prop-types";
-import { fadeIn } from "../../../../../../../theme/animation.js";
+import { fadeIn } from "../../../../../../../../theme/animation.js";
 
 const ImagePreview = ({ imageSource, title }) => {
   return (

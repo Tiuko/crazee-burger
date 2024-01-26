@@ -3,7 +3,7 @@ import OrderContext from "../../../../../../../context/OrderContext.jsx";
 import { EMPTY_PRODUCT } from "../../../../../../../enums/product.js";
 import { useSuccessMessage } from "../../../../../../../hooks/useSuccessMessage.js";
 import {replaceFrenchCommaWithDot} from '../../../../../../../utils/maths.js';
-import Form from "./Form.jsx";
+import Form from "./Form/Form.jsx";
 import SubmitButton from "./SubmitButton.jsx";
 
 const AddForm = () => {
