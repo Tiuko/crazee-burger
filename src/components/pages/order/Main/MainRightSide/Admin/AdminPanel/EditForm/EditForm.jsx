@@ -1,9 +1,9 @@
 import {useContext, useState} from 'react';
-import OrderContext from "../../../../../../../context/OrderContext.jsx";
-import Form from "./Form.jsx";
+import OrderContext from "../../../../../../../../context/OrderContext.jsx";
+import Form from "../Form/Form.jsx";
 import EditInfoMessage from "./EditInfoMessage.jsx";
 import SavingMessage from './SavingMessage.jsx';
-import {useSuccessMessage} from '../../../../../../../hooks/useSuccessMessage.js';
+import {useSuccessMessage} from '../../../../../../../../hooks/useSuccessMessage.js';
 
 const EditForm = () => {
   const { username, productSelected, setProductSelected, handleEdit, titleEditRef } =

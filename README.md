@@ -242,3 +242,31 @@ Site Name Change: Change the site name from the favicon.ico in the assets to "Cr
 - Add animation to removing a card/product.
 - Add a "casino" animation to the basket total updating.
 - Add a "casino" animation to updating the quantity of a product.
+
+### F15 : Add Availability and Advertising
+
+⌛️ Story Point: 5
+
+✅ Business Rules for AVAILABILITY (AVAIL)
+
+- ADMIN > From the add form, I can add a product that is already unavailable for sale. By default, the product is available for sale.
+
+- ADMIN > From the edit form, once I have selected a product, I can make it available or unavailable.
+
+- MENU > When a menu product is unavailable, an "out of stock" message appears on the card and the product can no longer be added to the basket (see mockup).
+
+- BASKET > When a product in the basket is made unavailable, a "Not available" message appears on the basket card (see mockup). It is immediately removed from the total basket sum calculation.
+
+The business rules for AVAILABILITY and ADVERTISING are cumulative.
+
+✅ Business Rules for ADVERTISING (AD)
+
+- ADMIN > From the add form, I can add a product with or without advertising. By default, the product is not advertised.
+
+- ADMIN > From the edit form, once I have selected a product, I can add or remove advertising from it.
+
+- MENU > When a menu product is advertised, a banner displaying "new" appears around the card (see mockup).
+
+- BASKET > When an advertised product is added to the basket, a "new" badge appears on the basket card (see mockup).
+
+The business rules for AVAILABILITY and ADVERTISING are cumulative.

@@ -13,7 +13,7 @@ const BasketCard = ({
   onClick,
   onDelete,
   isSelected,
-  formattedPrice,
+    price,
 }) => {
   return (
     <BasketCardStyled
@@ -33,7 +33,7 @@ const BasketCard = ({
           <div className="title">
             <span>{title}</span>
           </div>
-          <span className="price">{formattedPrice}</span>
+          <span className="price">{price}</span>
         </div>
         <div className="quantity">
           <CasinoEffect count={`x ${quantity}`} />
@@ -182,7 +182,7 @@ BasketCard.propTypes = {
   onDelete: PropTypes.func.isRequired,
   onClick: PropTypes.func,
   isSelected: PropTypes.bool,
-  formattedPrice: PropTypes.string.isRequired,
+  price: PropTypes.string.isRequired,
 };
 
 export default BasketCard;
