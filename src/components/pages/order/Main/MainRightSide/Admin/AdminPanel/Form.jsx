@@ -5,7 +5,7 @@ import ImagePreview from "./ImagePreview.jsx";
 import {
   getInputTextsConfig,
   getSelectInputConfig,
-} from "./inputTextConfig.jsx";
+} from "./inputConfig.jsx";
 import PropTypes from "prop-types";
 import SelectInput from "../../../../../../reusable-ui/SelectInput.jsx";
 
