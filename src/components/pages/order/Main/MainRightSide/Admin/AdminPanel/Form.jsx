@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import TextInput from '../../../../../../reusable-ui/TextInput.jsx';
+import TextInput from "../../../../../../reusable-ui/TextInput.jsx";
 import ImagePreview from "./ImagePreview.jsx";
 import { getInputTextsConfig } from "./inputTextConfig.jsx";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const Form = React.forwardRef(
   ({ product, onSubmit, onChange, onFocus, onBlur, children }, ref) => {
@@ -33,20 +33,19 @@ const Form = React.forwardRef(
 Form.displayName = "Form";
 
 Form.propTypes = {
-    product: PropTypes.object,
-    onSubmit: PropTypes.func,
-    onChange: PropTypes.func,
-    children: PropTypes.node,
-    imageSource: PropTypes.string,
-    title: PropTypes.string,
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
-}
+  product: PropTypes.object,
+  onSubmit: PropTypes.func,
+  onChange: PropTypes.func,
+  children: PropTypes.node,
+  imageSource: PropTypes.string,
+  title: PropTypes.string,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+};
 
 export default Form;
 
 const FormStyled = styled.form`
-  /* border: 2px solid black; */
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: repeat(4, 1fr);
@@ -56,15 +55,28 @@ const FormStyled = styled.form`
   grid-row-gap: 8px;
 
   .input-fields {
-    /* background: blue; */
     grid-area: 1 / 2 / -2 / 3;
 
     display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 8px;
+      
+      .title {
+          grid-area: 1 / 1 / 2 / 4;
+      }
+ 
+      .image-source {
+          grid-area: 2 / 1 / 3 / 4;
+      }
+      
+      .price {
+          grid-area: 3 / 1 / 4 / 2;
+      }
+      
   }
 
   .form-footer {
-    /* background: green; */
     grid-area: 4 / -2 / -1 / -1;
     display: flex;
     align-items: center;
